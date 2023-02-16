@@ -95,7 +95,7 @@ int g_nInsideDispatchUpdateTransmitState = 0;
 // When this is false, throw an assert in debug when GetAbsAnything is called. Used when hierachy is incomplete/invalid.
 bool CBaseEntity::s_bAbsQueriesValid = true;
 
-
+ConVar lychy_check_old_classnames("lychy_check_old_classnames", "0");
 ConVar sv_netvisdist( "sv_netvisdist", "10000", FCVAR_CHEAT | FCVAR_DEVELOPMENTONLY, "Test networking visibility distance" );
 
 // This table encodes edict data.
@@ -1957,6 +1957,8 @@ BEGIN_DATADESC_NO_BASE( CBaseEntity )
 	DEFINE_ARRAY( m_nModelIndexOverrides, FIELD_INTEGER, MAX_VISION_MODES ),
 #endif
 
+		//Lychy
+		DEFINE_KEYFIELD(m_szMessage, FIELD_STRING, "message"),
 END_DATADESC()
 
 // For code error checking
@@ -3021,7 +3023,10 @@ bool CBaseEntity::NameMatchesComplex( const char *pszNameOrWildcard )
 
 bool CBaseEntity::ClassMatchesComplex( const char *pszClassOrWildcard )
 {
-	return NamesMatch( pszClassOrWildcard, m_iClassname );
+	bool oldClassNameCheck = false;
+	if (lychy_check_old_classnames.GetBool())
+		oldClassNameCheck = NamesMatch(pszClassOrWildcard, m_szAltClassName);
+	return NamesMatch( pszClassOrWildcard, m_iClassname) || oldClassNameCheck ;
 }
 
 void CBaseEntity::MakeDormant( void )

@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitMaskedEnvMappedTexture
+	"$basetexture" "models/Robeta/Roller"
+	"$envmapmask" "models/Robeta/Roller_mask"
+	"$envmap" "models/Robeta/Roller_envmap"
+	"$envmapsphere" 1
+	"$multipass" 1
+}

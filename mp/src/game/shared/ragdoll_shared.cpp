@@ -1141,7 +1141,8 @@ C_EntityFlame *FireEffect( C_BaseAnimating *pTarget, C_BaseEntity *pServerFire, 
 		pTarget->AddFlag( FL_ONFIRE );
 		pFire->SetParent( pTarget );
 		pFire->m_hEntAttached = (C_BaseEntity *) pTarget;
-
+		pFire->m_bUseHitboxes = true;
+		pFire->m_bCreatedClientside = true;
 		pFire->OnDataChanged( DATA_UPDATE_CREATED );
 		pFire->SetAbsOrigin( pTarget->GetAbsOrigin() );
 

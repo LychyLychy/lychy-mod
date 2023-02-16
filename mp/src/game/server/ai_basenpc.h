@@ -1107,10 +1107,14 @@ public:
 	string_t GetPlayerSquadName() const									{ Assert( gm_iszPlayerSquad != NULL_STRING ); return gm_iszPlayerSquad; }
 	bool IsInPlayerSquad() const;
 	virtual CAI_BaseNPC *GetSquadCommandRepresentative()				{ return NULL; }
+	//lychy
+	virtual bool IsSelected() { return m_bSelectedByPlayer; }
+	virtual void PlayerSelect(bool select);
+	virtual void OnPlayerSelect() {};
 
 	virtual bool TargetOrder( CBaseEntity *pTarget, CAI_BaseNPC **Allies, int numAllies ) { OnTargetOrder(); return true; }
 	virtual void MoveOrder( const Vector &vecDest, CAI_BaseNPC **Allies, int numAllies ) { SetCommandGoal( vecDest ); SetCondition( COND_RECEIVED_ORDERS ); OnMoveOrder(); }
-
+	virtual void MoveOrder(const Vector& vecDest) { SetCommandGoal(vecDest); SetCondition(COND_RECEIVED_ORDERS); OnMoveOrder(); }
 	// Return true if you're willing to be idly talked to by other friends.
 	virtual bool CanBeUsedAsAFriend( void );
 
@@ -1118,6 +1122,7 @@ public:
 private:
 	Vector			m_vecCommandGoal;
 	static string_t gm_iszPlayerSquad;
+	bool m_bSelectedByPlayer;
 
 public:
 	CAI_MoveMonitor	m_CommandMoveMonitor;
@@ -1725,6 +1730,7 @@ public:
 
 	virtual bool		FValidateHintType( CAI_Hint *pHint );
 	virtual Activity	GetHintActivity( short sHintType, Activity HintsActivity );
+	virtual Activity GetHintActivity(short sHintType);
 	virtual float		GetHintDelay( short sHintType );
 	virtual Activity	GetCoverActivity( CAI_Hint* pHint );
 	virtual Activity	GetReloadActivity( CAI_Hint* pHint );
@@ -3120,5 +3126,7 @@ private:
 };
 
 extern CPostFrameNavigationHook *PostFrameNavigationSystem( void );
+
+void Msg(CAI_BaseNPC* pAI, unsigned flags, const char* pszFormat, ...);
 
 #endif // AI_BASENPC_H

@@ -2192,6 +2192,16 @@ Activity CAI_BaseNPC::GetHintActivity( short sHintType, Activity HintsActivity )
 	return ACT_IDLE;
 }
 
+//Lychy
+//-----------------------------------------------------------------------------
+// Purpose: Override in subclasses to associate specific hint types
+//			with activities
+//-----------------------------------------------------------------------------
+Activity CAI_BaseNPC::GetHintActivity(short sHintType)
+{
+	return ACT_IDLE;
+}
+
 //-----------------------------------------------------------------------------
 // Purpose: Override in subclasses to give specific hint types delays
 //			before they can be used again
@@ -14140,3 +14150,36 @@ bool CAI_BaseNPC::IsInChoreo() const
 {
 	return m_bInChoreo;
 }
+
+void Msg(CAI_BaseNPC* pAI, unsigned flags, const char* pszFormat, ...)
+{
+	if ((flags & AIMF_IGNORE_SELECTED) || (pAI->m_debugOverlays & OVERLAY_NPC_SELECTED_BIT))
+	{
+		AIMsgGuts(pAI, flags, CFmtStr(&pszFormat));
+	}
+}
+
+void CAI_BaseNPC::PlayerSelect(bool select)
+{
+	m_bSelectedByPlayer = select;
+
+	if (select)
+	{
+		SetCondition(COND_PLAYER_SELECTED);
+		OnPlayerSelect();
+	}
+	else
+	{
+		SetCondition(COND_PLAYER_UNSELECTED);
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+// Purpose: Spawn some blood particles
+//-----------------------------------------------------------------------------
+void SpawnBlood(Vector vecSpot, int bloodColor, float flDamage)
+{
+	UTIL_BloodDrips(vecSpot, g_vecAttackDir, bloodColor, (int)flDamage);
+}
+

@@ -1,0 +1,2 @@
+startframe 1
+endframe 39

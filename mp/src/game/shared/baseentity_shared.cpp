@@ -79,6 +79,9 @@ ConVar	ai_shot_bias_min( "ai_shot_bias_min", "-1.0", FCVAR_REPLICATED );
 ConVar	ai_shot_bias_max( "ai_shot_bias_max", "1.0", FCVAR_REPLICATED );
 ConVar	ai_debug_shoot_positions( "ai_debug_shoot_positions", "0", FCVAR_REPLICATED | FCVAR_CHEAT );
 
+ConVar lychy_fix_black("lychy_fix_black", "0");
+ConVar lychy_fix_brush_rotating("lychy_fix_brush_rotating", "0");
+
 // Utility func to throttle rate at which the "reasonable position" spew goes out
 static double s_LastEntityReasonableEmitTime;
 bool CheckEmitReasonablePhysicsSpew()
@@ -332,6 +335,8 @@ bool CBaseEntity::KeyValue( const char *szKeyName, const char *szValue )
 		color32 tmp;
 		UTIL_StringToColor32( &tmp, szValue );
 		SetRenderColor( tmp.r, tmp.g, tmp.b );
+		if (!(lychy_fix_black.GetBool() && tmp.r == 0 && tmp.g == 0 && tmp.b == 0))
+			SetRenderColor(tmp.r, tmp.g, tmp.b);
 		// don't copy alpha, legacy support uses renderamt
 		return true;
 	}
@@ -420,7 +425,12 @@ bool CBaseEntity::KeyValue( const char *szKeyName, const char *szValue )
 		// If you're hitting this assert, it's probably because you're
 		// calling SetLocalAngles from within a KeyValues method.. use SetAbsAngles instead!
 		Assert( (GetMoveParent() == NULL) && !IsEFlagSet( EFL_DIRTY_ABSTRANSFORM ) );
-		SetAbsAngles( angles );
+		const char* isBrush = strstr(GetClassname(), "func_");
+
+		if (!(lychy_fix_brush_rotating.GetBool() && isBrush))
+			SetAbsAngles( angles );
+		else
+			KeyValue("movedir", szValue);
 		return true;
 	}
 

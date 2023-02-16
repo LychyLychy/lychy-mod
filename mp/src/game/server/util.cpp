@@ -64,25 +64,7 @@ void DBG_AssertFunction( bool fExpr, const char *szExpr, const char *szFile, int
 #endif	// DEBUG
 
 
-//-----------------------------------------------------------------------------
-// Entity creation factory
-//-----------------------------------------------------------------------------
-class CEntityFactoryDictionary : public IEntityFactoryDictionary
-{
-public:
-	CEntityFactoryDictionary();
 
-	virtual void InstallFactory( IEntityFactory *pFactory, const char *pClassName );
-	virtual IServerNetworkable *Create( const char *pClassName );
-	virtual void Destroy( const char *pClassName, IServerNetworkable *pNetworkable );
-	virtual const char *GetCannonicalName( const char *pClassName );
-	void ReportEntitySizes();
-
-private:
-	IEntityFactory *FindFactory( const char *pClassName );
-public:
-	CUtlDict< IEntityFactory *, unsigned short > m_Factories;
-};
 
 //-----------------------------------------------------------------------------
 // Singleton accessor
@@ -3320,3 +3302,16 @@ static ConCommand collision_test("collision_test", CC_CollisionTest, "Tests coll
 
 
 
+//=========================================================
+// UTIL_StripToken - for redundant keynames
+//=========================================================
+void UTIL_StripToken(const char* pKey, char* pDest, int nDestLength)
+{
+	int i = 0;
+	while ((i < nDestLength - 1) && pKey[i] && pKey[i] != '#')
+	{
+		pDest[i] = pKey[i];
+		++i;
+	}
+	pDest[i] = 0;
+}

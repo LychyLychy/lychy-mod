@@ -38,6 +38,9 @@ END_DATADESC()
 
 IMPLEMENT_SERVERCLASS_ST( CEntityFlame, DT_EntityFlame )
 	SendPropEHandle( SENDINFO( m_hEntAttached ) ),
+	SendPropInt(SENDINFO(m_bUseHitboxes), 1, SPROP_UNSIGNED),
+	SendPropTime(SENDINFO(m_flLifetime)),
+	SendPropFloat(SENDINFO(m_flSize), 16, SPROP_NOSCALE),
 END_SEND_TABLE()
 
 LINK_ENTITY_TO_CLASS( entityflame, CEntityFlame );

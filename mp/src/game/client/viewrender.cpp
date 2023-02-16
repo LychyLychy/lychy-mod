@@ -964,6 +964,8 @@ bool CViewRender::ShouldDrawViewModel( bool bDrawViewmodel )
 
 	if ( C_BasePlayer::ShouldDrawLocalPlayer() )
 		return false;
+	if (gHUD.IsHidden(HIDEHUD_WEAPONS))
+		return false;
 
 	if ( !ShouldDrawEntities() )
 		return false;

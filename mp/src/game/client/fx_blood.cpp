@@ -25,13 +25,14 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-CLIENTEFFECT_REGISTER_BEGIN( PrecacheEffectBloodSpray )
-CLIENTEFFECT_MATERIAL( "effects/blood_core" )
-CLIENTEFFECT_MATERIAL( "effects/blood_gore" )
-CLIENTEFFECT_MATERIAL( "effects/blood_drop" )
-CLIENTEFFECT_MATERIAL( "effects/blood_puff" )
+CLIENTEFFECT_REGISTER_BEGIN(PrecacheEffectBloodSpray)
+CLIENTEFFECT_MATERIAL("effects/blood_core")
+CLIENTEFFECT_MATERIAL("effects/blood_gore")
+CLIENTEFFECT_MATERIAL("effects/blood_drop")
+CLIENTEFFECT_MATERIAL("effects/blood_puff")
 CLIENTEFFECT_REGISTER_END()
 
+ConVar lychy_blood_old("lychy_blood_old", "0");	
 // Cached material handles
 PMaterialHandle g_Blood_Core = NULL;
 PMaterialHandle g_Blood_Gore = NULL;
@@ -504,6 +505,7 @@ void BloodImpactCallback( const CEffectData & data )
 	bool bFoundBlood = false;
 
 	// Find which sort of blood we are
+	if (!lychy_blood_old.GetBool())
 	for ( int i = 0; i < ARRAYSIZE( bloodCallbacks ); i++ )
 	{
 		if ( bloodCallbacks[i].nColor == data.m_nColor )

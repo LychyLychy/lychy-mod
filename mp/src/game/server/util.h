@@ -31,6 +31,7 @@
 #include "util_shared.h"
 #include "shareddefs.h"
 #include "networkvar.h"
+#include "utldict.h"
 
 struct levellist_t;
 class IServerNetworkable;
@@ -482,7 +483,7 @@ void			UTIL_LogPrintf( PRINTF_FORMAT_STRING const char *fmt, ... ) FMTFUNCTION( 
 float UTIL_DotPoints ( const Vector &vecSrc, const Vector &vecCheck, const Vector &vecDir );
 
 void UTIL_StripToken( const char *pKey, char *pDest );// for redundant keynames
-
+void UTIL_StripToken(const char* pKey, char* pDest, int nDestLength);// for redundant keynames
 // Misc functions
 int BuildChangeList( levellist_t *pLevelList, int maxList );
 
@@ -633,4 +634,32 @@ bool UTIL_LoadAndSpawnEntitiesFromScript( CUtlVector <CBaseEntity*> &entities, c
 // Given a vector, clamps the scalar axes to MAX_COORD_FLOAT ranges from worldsize.h
 void UTIL_BoundToWorldSize( Vector *pVecPos );
 
+
+
+//Lychy
+
+//-----------------------------------------------------------------------------
+// Entity creation factory
+//-----------------------------------------------------------------------------
+class CEntityFactoryDictionary : public IEntityFactoryDictionary
+{
+public:
+	CEntityFactoryDictionary();
+
+	virtual void InstallFactory(IEntityFactory* pFactory, const char* pClassName);
+	virtual IServerNetworkable* Create(const char* pClassName);
+	virtual void Destroy(const char* pClassName, IServerNetworkable* pNetworkable);
+	virtual const char* GetCannonicalName(const char* pClassName);
+	void ReportEntitySizes();
+
+private:
+	IEntityFactory* FindFactory(const char* pClassName);
+public:
+	CUtlDict< IEntityFactory*, unsigned short > m_Factories;
+};
+
+#define PRECACHE_SOUND_ARRAY( a ) \
+	{ for (int i = 0; i < ARRAYSIZE( a ); i++ ) enginesound->PrecacheSound((char *) a [i]); }
+
 #endif // UTIL_H
+

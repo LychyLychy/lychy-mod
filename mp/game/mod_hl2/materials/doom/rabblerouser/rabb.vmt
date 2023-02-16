@@ -1,0 +1,5 @@
+UnlitGeneric
+{
+	"$basetexture"		"doom/rabblerouser/rabb"
+	$translucent 1
+}

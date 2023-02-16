@@ -13,11 +13,18 @@
 #include "soundflags.h"
 #include "AI_ResponseSystem.h"
 #include "utldict.h"
-
 #if defined( _WIN32 )
 #pragma once
 #endif
+// Sentence prefix constants
+#define MONOLOGNAME_LEN	16				// sentence names passed as monolog may be no longer than this.
 
+#define AI_SP_START_MONOLOG 	'~'
+#define AI_SP_MONOLOG_LINE  	'@'
+#define AI_SP_SPECIFIC_SENTENCE	'!'
+#define AI_SP_WAVFILE			'^'
+#define AI_SP_SCENE_GROUP		'='
+#define AI_SP_SPECIFIC_SCENE	'?'
 class KeyValues;
 class AI_CriteriaSet;
 
@@ -43,7 +50,6 @@ public:
 	float GetReleaseTime() const 	{ return m_ReleaseTime; }
 
 	CBaseEntity *GetOwner()	{ return m_hCurrentTalker; }
-
 private:
 	float		m_ReleaseTime;
 	EHANDLE		m_hCurrentTalker;
@@ -53,6 +59,7 @@ private:
 
 extern CAI_TimedSemaphore g_AIFriendliesTalkSemaphore;
 extern CAI_TimedSemaphore g_AIFoesTalkSemaphore;
+extern CAI_TimedSemaphore g_AITalkSemaphore;
 
 #define GetSpeechSemaphore( pNpc ) (((pNpc)->IsPlayerAlly()) ? &g_AIFriendliesTalkSemaphore : &g_AIFoesTalkSemaphore )
 //-----------------------------------------------------------------------------
@@ -120,6 +127,10 @@ public:
 	virtual void OnSpokeConcept( AIConcept_t concept, AI_Response *response )	{};
 	virtual void OnStartSpeaking()						{}
 	virtual bool UseSemaphore()							{ return true; }
+	//Lychy
+	virtual bool ShouldResumeMonolog() { return true; }
+	virtual void OnResumeMonolog() {}
+	virtual bool ShouldSuspendMonolog() { return false; }
 };
 
 struct ConceptHistory_t
@@ -248,6 +259,35 @@ public:
 
 private:
 	CHandle<CBaseFlex>	m_pOuter;
+
+//Lychy
+// --------------------------------
+//
+// Monologue data
+//
+public:
+	char		m_szMonologSentence[MONOLOGNAME_LEN];	// The name of the sentence group for the monolog I'm speaking.
+	int			m_iMonologIndex;						// Which sentence from the group I should be speaking.
+	bool		m_fMonologSuspended;
+	EHANDLE		m_hMonologTalkTarget;					// Who I'm trying to deliver my monolog to. 
+
+	// --------------------------------
+	//
+	// Monologue operations
+	//
+
+	bool HasMonolog(void) { return m_iMonologIndex != -1; };
+	void BeginMonolog(char* pszSentenceName, CBaseEntity* pListener);
+	void EndMonolog(void);
+	void SpeakMonolog(void);
+
+	void SuspendMonolog(float flInterval);
+	void ResumeMonolog(void);
+
+	CBaseEntity* GetMonologueTarget() { return m_hMonologTalkTarget.Get(); }
+
+protected:
+	bool SpeakRawScene(const char* pszScene, float delay);
 };
 
 class CMultiplayer_Expresser : public CAI_Expresser
@@ -263,6 +303,7 @@ public:
 
 private:
 	bool m_bAllowMultipleScenes;
+
 
 };
 

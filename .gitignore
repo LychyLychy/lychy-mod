@@ -53,4 +53,16 @@ config.cfg
 
 # shader files
 *.tmp
-
+*.enc
+*.filters
+*.vpc_crc
+Debug*/
+*.sentinel
+*.vcxproj
+*.vs/
+*.log
+*.prt
+*.sav
+*.hl1
+*.hl2
+*.hl3

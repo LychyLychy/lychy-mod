@@ -99,7 +99,7 @@ protected:
 	bool						m_bSimulate;
 	int							m_nToolParticleEffectId;
 
-private:
+public:
 	// Update the reference count.
 	void						AddRef();
 	void						Release();

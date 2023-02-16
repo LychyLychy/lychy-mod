@@ -1,0 +1,527 @@
+"NPC_Roller.PowerOn"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/power_up.wav"
+}
+
+"NPC_Roller.PowerOff"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDL"
+
+	"wave"			"npc/roller/shut_down.wav"
+}
+
+"NPC_Roller.Marco"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/roller/call1.wav"
+		"wave"	"npc/roller/call2.wav"
+	}
+}
+
+"NPC_Roller.Polo"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/call3.wav"
+}
+
+"NPC_RollerBuddy.Confirm"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/confirm_move.wav"
+}
+
+"NPC_RollerBuddy.RemoteYes"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/remote_yes.wav"
+}
+
+"NPC_RollerBuddy.RemoteNo"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/remote_yes.wav"
+}
+
+"NPC_RollerBull.Measure"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/test/rol_probe1.wav"
+}
+
+"NPC_RollerBull.Tossed"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"90, 110"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/test/rol_tossed1.wav"
+}
+
+"NPC_RollerBull.Taunt"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.300"
+	"pitch"			"90, 110"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/test/rol_swingbladetaunt1.wav"
+}
+
+"NPC_RollerBull.OpenSpikes"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"90, 110"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/blade_out.wav"
+}
+
+"NPC_RollerBull.CloseSpikes"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/blade_in.wav"
+}
+
+"NPC_RollerBull.Cut"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/blade_cut.wav"
+}
+
+"NPC_RollerBull.Summon"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/test/rol_summon1.wav"
+}
+
+"NPC_RollerBull.Idle"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/roller/test/rol_idle1.wav"
+		"wave"	"npc/roller/test/rol_idle2.wav"
+		"wave"	"npc/roller/test/rol_idle3.wav"
+		"wave"	"npc/roller/test/rol_idle4.wav"
+	}
+}
+
+"NPC_RollerBull.Bark"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/roller/bark1.wav"
+		"wave"	"npc/roller/bark2.wav"
+		"wave"	"npc/roller/bark3.wav"
+	}
+}
+
+
+"NPC_RollerTurret.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/roller/turret_shoot.wav"
+}
+
+"Player_Manhack.ThrustLow"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/spinloop_low.wav"
+}
+
+"Player_Manhack.ThrustHigh"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/spinloop_high.wav"
+}
+
+"Player_Manhack.GrindFlesh"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.800"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/manhack/grind_flesh1.wav"
+		"wave"	"npc/manhack/grind_flesh2.wav"
+		"wave"	"npc/manhack/grind_flesh3.wav"
+	}
+}
+
+"Player_Manhack.Grind"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.800"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/manhack/grind1.wav"
+		"wave"	"npc/manhack/grind2.wav"
+		"wave"	"npc/manhack/grind3.wav"
+	}
+}
+
+"Player_Manhack.Fly"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/stinger_flyloop1.wav"
+}
+
+"Player_Manhack.Fire"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/stinger_fire1.wav"
+}
+
+"Player_Manhack.Damage"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"impact/bullets/metal/metal1.wav"
+		"wave"	"impact/bullets/metal/metal2.wav"
+		"wave"	"impact/bullets/metal/metal3.wav"
+		"wave"	"impact/bullets/metal/metal4.wav"
+	}
+}
+
+
+"NPC_MissileDefense.Attack"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_100dB"
+
+	"rndwave"
+	{
+		"wave"	"weapons/hmg1_1.wav"
+		"wave"	"weapons/hmg1_2.wav"
+		"wave"	"weapons/hmg1_3.wav"
+	}
+}
+
+"NPC_MissileDefense.Reload"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_100dB"
+
+	"wave"			"weapons/ar1_boltback.wav"
+}
+
+"NPC_MissileDefense.Turn"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_100dB"
+
+	"wave"			"npc/entity/turret/turret_loop1.wav"
+}
+
+"NPC_MetroPoliceBeta.Surprise"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/surprise1.wav"
+		"wave"	"npc/metroPolice/surprise2.wav"
+		"wave"	"npc/metroPolice/surprise3.wav"
+		"wave"	"npc/metroPolice/surprise4.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.Alert"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/pointer01.wav"
+		"wave"	"npc/metroPolice/pointer02.wav"
+		"wave"	"npc/metroPolice/pointer03.wav"
+		"wave"	"npc/metroPolice/pointer04.wav"
+		"wave"	"npc/metroPolice/pointer05.wav"
+		"wave"	"npc/metroPolice/pointer06.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.Die"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/die1.wav"
+		"wave"	"npc/metroPolice/die2.wav"
+		"wave"	"npc/metroPolice/die3.wav"
+		"wave"	"npc/metroPolice/die4.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.Pain"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/pain1.wav"
+		"wave"	"npc/metroPolice/pain2.wav"
+		"wave"	"npc/metroPolice/pain3.wav"
+		"wave"	"npc/metroPolice/pain4.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.OnFireScream"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_85dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/fire_scream1.wav"
+		"wave"	"npc/metroPolice/fire_scream2.wav"
+		"wave"	"npc/metroPolice/fire_scream3.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.LocateSpeech"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/pointer01.wav"
+		"wave"	"npc/metroPolice/pointer02.wav"
+		"wave"	"npc/metroPolice/pointer03.wav"
+		"wave"	"npc/metroPolice/pointer04.wav"
+		"wave"	"npc/metroPolice/pointer05.wav"
+		"wave"	"npc/metroPolice/pointer06.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.DeploySpeech"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/deploy01.wav"
+		"wave"	"npc/metroPolice/deploy02.wav"
+		"wave"	"npc/metroPolice/deploy03.wav"
+		"wave"	"npc/metroPolice/deploy04.wav"
+		"wave"	"npc/metroPolice/deploy05.wav"
+		"wave"	"npc/metroPolice/deploy06.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.WaterSpeech"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/water01.wav"
+		"wave"	"npc/metroPolice/water02.wav"
+		"wave"	"npc/metroPolice/water03.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.HidingSpeech"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolicebeta/hiding01.wav"
+		"wave"	"npc/metroPolicebeta/hiding02.wav"
+		"wave"	"npc/metroPolicebeta/hiding03.wav"
+		"wave"	"npc/metroPolicebeta/hiding04.wav"
+		"wave"	"npc/metroPolicebeta/hiding05.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.HitByVehicle"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/hit_by_vehicle1.wav"
+		"wave"	"npc/metroPolice/hit_by_vehicle2.wav"
+		"wave"	"npc/metroPolice/hit_by_vehicle3.wav"
+	}
+}
+
+"NPC_MetroPoliceBeta.AlertEarly"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/metroPolice/alert1.wav"
+		"wave"	"npc/metroPolice/alert2.wav"
+		"wave"	"npc/metroPolice/alert3.wav"
+		"wave"	"npc/metroPolice/alert4.wav"
+		"wave"	"npc/metroPolice/alert5.wav"
+		"wave"	"npc/metroPolice/alert6.wav"
+	}
+}

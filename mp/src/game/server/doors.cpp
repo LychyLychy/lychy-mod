@@ -28,6 +28,20 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
+ConVar lychy_old_door_sounds("lychy_old_door_sounds", "0");
+//Default sounds for the various door noises
+#define	DEFAULT_DOOR_MOVING_NOISE	"doors/func_door/default_move.wav"
+#define	DEFAULT_DOOR_ARRIVE_NOISE	"doors/func_door/default_stop.wav"
+#define	DEFAULT_DOOR_LOCKED_NOISE	"doors/func_door/default_locked.wav"
+#define	DEFAULT_DOOR_UNLOCKED_NOISE	"common/null.wav"
+
+//Default noises for rotating door noises
+#define	DEFAULT_DOOR_ROTATING_MOVING_NOISE		"doors/func_door_rotating/default_move.wav"
+#define	DEFAULT_DOOR_ROTATING_ARRIVE_NOISE		"doors/func_door_rotating/default_stop.wav" 
+#define	DEFAULT_DOOR_ROTATING_LOCKED_NOISE		"doors/func_door_rotating/default_locked.wav"
+#define	DEFAULT_DOOR_ROTATING_UNLOCKED_NOISE	"common/null.wav"
+
+
 #define CLOSE_AREAPORTAL_THINK_CONTEXT "CloseAreaportalThink"
 
 BEGIN_DATADESC( CBaseDoor )
@@ -535,6 +549,25 @@ void CBaseDoor::SetToggleState( int state )
 void CBaseDoor::Precache( void )
 {
 	//Fill in a default value if necessary
+		//Fill in a default value if necessary
+	if (lychy_old_door_sounds.GetBool())
+	{
+		//Fill in a default value if necessary
+		if (IsRotatingDoor())
+		{
+			UTIL_ValidateSoundName(m_NoiseMoving, DEFAULT_DOOR_ROTATING_MOVING_NOISE);
+			UTIL_ValidateSoundName(m_NoiseArrived, DEFAULT_DOOR_ROTATING_ARRIVE_NOISE);
+			UTIL_ValidateSoundName(m_ls.sLockedSound, DEFAULT_DOOR_ROTATING_LOCKED_NOISE);
+			UTIL_ValidateSoundName(m_ls.sUnlockedSound, DEFAULT_DOOR_ROTATING_UNLOCKED_NOISE);
+		}
+		else
+		{
+			UTIL_ValidateSoundName(m_NoiseMoving, DEFAULT_DOOR_MOVING_NOISE);
+			UTIL_ValidateSoundName(m_NoiseArrived, DEFAULT_DOOR_ARRIVE_NOISE);
+			UTIL_ValidateSoundName(m_ls.sLockedSound, DEFAULT_DOOR_LOCKED_NOISE);
+			UTIL_ValidateSoundName(m_ls.sUnlockedSound, DEFAULT_DOOR_UNLOCKED_NOISE);
+		}
+	}
 	if ( IsRotatingDoor() )
 	{
 		UTIL_ValidateSoundName( m_NoiseMoving,		"RotDoorSound.DefaultMove" );

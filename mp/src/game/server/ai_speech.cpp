@@ -35,7 +35,7 @@ extern ConVar rr_debugresponses;
 
 CAI_TimedSemaphore g_AIFriendliesTalkSemaphore;
 CAI_TimedSemaphore g_AIFoesTalkSemaphore;
-
+CAI_TimedSemaphore g_AITalkSemaphore;
 ConceptHistory_t::~ConceptHistory_t()
 {
 	delete response;
@@ -985,3 +985,105 @@ void CMultiplayer_Expresser::DisallowMultipleScenes()
 {
 	m_bAllowMultipleScenes = false;
 }
+//Lychy
+//-------------------------------------
+
+void CAI_Expresser::SpeakMonolog(void)
+{
+	int i;
+	char szSentence[MONOLOGNAME_LEN];
+
+	if (!HasMonolog())
+	{
+		return;
+	}
+
+	if (!IsSpeaking())
+	{
+		if (m_fMonologSuspended)
+		{
+			if (GetSink()->ShouldResumeMonolog())
+			{
+				ResumeMonolog();
+			}
+
+			return;
+		}
+
+		Q_snprintf(szSentence, sizeof(szSentence), "%s%d", m_szMonologSentence, m_iMonologIndex);
+		m_iMonologIndex++;
+
+		i = SpeakRawSentence(szSentence, 0, VOL_NORM);
+
+		if (i == -1)
+		{
+			EndMonolog();
+		}
+	}
+	else
+	{
+		if (GetSink()->ShouldSuspendMonolog())
+		{
+			SuspendMonolog(0);
+		}
+	}
+}
+void CAI_Expresser::ResumeMonolog(void)
+{
+	if (m_iMonologIndex > 0)
+	{
+		// back up and repeat what I was saying
+		// when interrupted.
+		m_iMonologIndex--;
+	}
+
+	GetSink()->OnResumeMonolog();
+	m_fMonologSuspended = false;
+}
+void CAI_Expresser::EndMonolog(void)
+{
+	m_szMonologSentence[0] = 0;
+	m_iMonologIndex = -1;
+	m_fMonologSuspended = false;
+	m_hMonologTalkTarget = NULL;
+}
+
+void CAI_Expresser::SuspendMonolog(float flInterval)
+{
+	if (HasMonolog())
+	{
+		m_fMonologSuspended = true;
+	}
+
+	// free up other characters to speak.
+	g_AITalkSemaphore.Release();
+}
+
+//-------------------------------------
+
+void CAI_Expresser::BeginMonolog(char* pszSentenceName, CBaseEntity* pListener)
+{
+	if (pListener)
+	{
+		m_hMonologTalkTarget = pListener;
+	}
+	else
+	{
+		Warning("NULL Listener in BeginMonolog()!\n");
+		Assert(0);
+		EndMonolog();
+		return;
+	}
+
+	Q_strncpy(m_szMonologSentence, pszSentenceName, sizeof(m_szMonologSentence));
+
+	// change the "AI_SP_START_MONOLOG" to an "AI_SP_MONOLOG_LINE". m_sMonologSentence is now the 
+	// string we'll tack numbers onto to play sentences from this group in 
+	// sequential order.
+	m_szMonologSentence[0] = AI_SP_MONOLOG_LINE;
+
+	m_fMonologSuspended = false;
+
+	m_iMonologIndex = 0;
+}
+

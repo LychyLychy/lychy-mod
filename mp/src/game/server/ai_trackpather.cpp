@@ -58,6 +58,8 @@ BEGIN_DATADESC( CAI_TrackPather )
 
 	DEFINE_FIELD( m_nPauseState,			FIELD_INTEGER ),
 
+	DEFINE_FIELD(m_flPathLeadBias, FIELD_FLOAT),
+
 	// Inputs
 	DEFINE_INPUTFUNC( FIELD_STRING, "SetTrack", InputSetTrack ),
 	DEFINE_INPUTFUNC( FIELD_STRING, "FlyToSpecificTrackViaPath", InputFlyToPathTrack ),
@@ -102,7 +104,11 @@ void CAI_TrackPather::InitPathingData( float flTrackArrivalTolerance, float flTa
 	m_flFarthestPathDist = 1e10;
 	m_flPathMaxSpeed = 0;
 	m_nPauseState = PAUSE_NO_PAUSE; 
+
+	//lychy
+	m_flPathLeadBias = 0.0f;
 }
+
 
 	   
 //-----------------------------------------------------------------------------
@@ -1693,4 +1699,214 @@ void CAI_TrackPather::InputChooseNearestPathPoint( inputdata_t &inputdata )
 void CAI_TrackPather::UseFarthestPathPoint( bool useFarthest )
 {
 	m_bChooseFarthestPoint = useFarthest;
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: 
+//-----------------------------------------------------------------------------
+Vector CAI_TrackPather::GetPathGoalPoint(float leadDist)
+{
+	// If our points are invalid, just stay put
+	if ((m_pCurrentPathTarget == NULL) && (m_pDestPathTarget == NULL))
+		return WorldSpaceCenter();
+
+	/*
+	// If we're at the target, just return the target's position
+	if ( m_pCurrentPathTarget == m_pDestPathTarget )
+		return m_pDestPathTarget->GetAbsOrigin();
+	*/
+
+	// Find our base offset from our current path point
+	float	totalPathLength = (m_pCurrentPathTarget->GetAbsOrigin() - WorldSpaceCenter()).Length();
+
+	// If we're already past the maximum, then just close distance
+	if (totalPathLength >= leadDist)
+		return m_pCurrentPathTarget->GetAbsOrigin();
+
+	CPathTrack* pNext = FindNextPathPoint(m_pCurrentPathTarget, m_pDestPathTarget);
+	CPathTrack* pPrev = m_pCurrentPathTarget;
+
+	Vector	segmentDir;
+	float	segmentLength;
+	int		loopRuns = 0;
+
+	// Iterate through the path, building our line's length
+	while (CPathTrack::ValidPath(pNext))
+	{
+		// Sanity check our path walk
+		if ((loopRuns++) > 1024)
+		{
+			// This means that the path is either really large, or we've slipped through a continuous loop somehow
+			DevWarning("%s: Cyclical path found in path_track connections, check links!\n", GetClassname());
+			assert(0);
+			break;
+		}
+
+		// Find this segment's length
+		segmentDir = (pNext->GetAbsOrigin() - pPrev->GetAbsOrigin());
+		segmentLength = VectorNormalize(segmentDir);
+
+		// See if we're over the max now
+		if ((totalPathLength + segmentLength) >= leadDist)
+		{
+			// Difference left over
+			float	leadDiff = leadDist - totalPathLength;
+
+			// Offset the position by that amount
+			Vector	offsetPos = pPrev->GetAbsOrigin() + (segmentDir * leadDiff);
+
+			// Debug
+			if (g_debug_trackpather.GetInt() == TRACKPATHER_DEBUG_LEADING)
+			{
+				NDebugOverlay::Cross3D(pPrev->GetAbsOrigin(), -Vector(16, 16, 16), Vector(16, 16, 16), 0, 255, 0, true, 0.1f);
+				NDebugOverlay::Cross3D(offsetPos, -Vector(16, 16, 16), Vector(16, 16, 16), 0, 255, 0, true, 0.1f);
+				NDebugOverlay::Line(pPrev->GetAbsOrigin(), offsetPos, 0, 255, 0, true, 0.1f);
+			}
+
+			return offsetPos;
+		}
+
+		// Debug
+		if (g_debug_trackpather.GetInt() == TRACKPATHER_DEBUG_LEADING)
+		{
+			NDebugOverlay::Cross3D(pPrev->GetAbsOrigin(), -Vector(16, 16, 16), Vector(16, 16, 16), 0, 255, 0, true, 0.1f);
+			NDebugOverlay::Line(pPrev->GetAbsOrigin(), pNext->GetAbsOrigin(), 0, 255, 0, true, 0.1f);
+		}
+
+		// Add this to our path length
+		totalPathLength += segmentLength;
+
+		// Move to our next point
+		pPrev = pNext;
+		pNext = FindNextPathPoint(pNext, m_pDestPathTarget);
+
+		// See if we're at our destination
+		if (pNext == m_pDestPathTarget)
+			return m_pDestPathTarget->GetAbsOrigin();
+	}
+
+	// Stay put
+	if (pPrev == NULL)
+		return WorldSpaceCenter();
+
+	// Head towards our last known position
+	return pPrev->GetAbsOrigin();
+}
+//-----------------------------------------------------------------------------
+// Purpose: 
+// Output : CPathTrack
+//-----------------------------------------------------------------------------
+CPathTrack* CAI_TrackPather::FindNextPathPoint(CPathTrack* pStart, CPathTrack* pDest)
+{
+	// Make sure we're not trying to go nowhere
+	if (pStart == pDest)
+		return pDest;
+
+	CPathTrack* pNext = pStart->GetNext();
+
+	bool	forwardFound = false;
+	bool	backwardFound = false;
+	float	forwardCost = 0.0f;
+	float	backwardCost = 0.0f;
+	int		loopRuns = 0;
+
+	// Try going forward through the list
+	while (CPathTrack::ValidPath(pNext))
+	{
+		// Sanity check our path walk
+		if ((loopRuns++) > 1024)
+		{
+			// This means that the path is either really large, or we've slipped through a continuous loop somehow
+			DevWarning("%s: Cyclical path found in path_track connections, check links!\n", GetClassname());
+			assert(0);
+			break;
+		}
+
+		// Found the target, early out
+		if (pNext == pDest)
+		{
+			forwardFound = true;
+			break;
+		}
+
+		// Check for erroneous loop-through
+		if (pNext == pStart)
+		{
+			//NOTENOTE: We wrapped?  Should never happen
+			DevWarning("%s: Cyclical path found in path_track connections, check links!\n", GetClassname());
+			assert(0);
+		}
+
+		if (pNext->GetNext() != NULL)
+		{
+			//FIXME: Cache in the path track
+			forwardCost += (pNext->GetAbsOrigin() - pNext->GetNext()->GetAbsOrigin()).Length();
+		}
+
+		pNext = pNext->GetNext();
+	}
+
+	// Start over
+	pNext = pStart->GetPrevious();
+	loopRuns = 0;
+
+	// Try going backward through the lsit
+	while (CPathTrack::ValidPath(pNext))
+	{
+		// Sanity check our path walk
+		if ((loopRuns++) > 1024)
+		{
+			// This means that the path is either really large, or we've slipped through a continuous loop somehow
+			DevWarning("%s: Cyclical path found in path_track connections, check links!\n", GetClassname());
+			assert(0);
+			break;
+		}
+
+		// If we're already more expensive than going forward, early-out
+		if (forwardFound && (backwardCost >= forwardCost))
+			break;
+
+		// Found the target, early out
+		if (pNext == pDest)
+		{
+			backwardFound = true;
+			break;
+		}
+
+		// Check for erroneous loop-through
+		if (pNext == pStart)
+		{
+			DevWarning("%s: Cyclical path found in path_track connections, check links!\n", GetClassname());
+			assert(0);
+		}
+
+		if (pNext->GetPrevious() != NULL)
+		{
+			//FIXME: Cache in the path track
+			backwardCost += (pNext->GetAbsOrigin() - pNext->GetPrevious()->GetAbsOrigin()).Length();
+		}
+
+		pNext = pNext->GetPrevious();
+	}
+
+	// If we found a path both ways, take the shortest route
+	if (forwardFound && backwardFound)
+	{
+		// Mask off the forward path if it's longer than going backwards
+		if (forwardCost >= backwardCost)
+		{
+			forwardFound = false;
+		}
+	}
+
+	if (forwardFound)
+		return pStart->GetNext();
+
+	if (backwardFound)
+		return pStart->GetPrevious();
+
+	// NOTENOTE: No path was found?
+	// DevWarning( "Unable to find path to: %s\n", m_pDestPathTarget->GetEntityName() );
+	// assert(0);
+	return NULL;
 }

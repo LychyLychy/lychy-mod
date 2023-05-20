@@ -267,6 +267,13 @@ private:
 	Vector			m_vecTargetPathPoint;		// What point on the path is closest to the target?
 
 	PauseState_t	m_nPauseState;
+
+	//Lychy
+public:
+	float			m_flPathLeadBias;			// Distance to lead or trail our desired position
+	Vector 			GetPathGoalPoint(float leadBias);
+	CPathTrack* FindNextPathPoint(CPathTrack* pStart, CPathTrack* pDest);
+	float			GetPathLeadBias() const { return m_flPathLeadBias; };
 };
 
 //------------------------------------------------------------------------------

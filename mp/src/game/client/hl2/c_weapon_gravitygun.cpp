@@ -47,6 +47,9 @@ public:
 	int						m_active;
 	int						m_glueTouching;
 	int						m_viewModelIndex;
+
+	//Lychy
+	virtual const matrix3x4_t& RenderableToWorldTransform();
 };
 
 
@@ -159,8 +162,20 @@ int	C_BeamQuadratic::DrawModel( int )
 	}
 
 	float scrollOffset = gpGlobals->curtime - (int)gpGlobals->curtime;
-	materials->Bind( pMat );
+	//materials->Bind( pMat );
+	CMatRenderContextPtr pContext(materials);
+	pContext->Bind(pMat);
 	DrawBeamQuadratic( points[0], points[1], points[2], 13, color, scrollOffset );
 	return 1;
 }
 
+
+
+//Lychy
+const matrix3x4_t& C_BeamQuadratic::RenderableToWorldTransform()
+{
+	// Setup our transform.
+	static matrix3x4_t mat;
+	AngleMatrix(GetRenderAngles(), GetRenderOrigin(), mat);
+	return mat;
+}

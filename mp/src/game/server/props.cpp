@@ -181,7 +181,7 @@ void CBaseProp::Spawn( void )
 	if (!szModel || !*szModel)
 	{
 		Warning( "prop at %.0f %.0f %0.f missing modelname\n", GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z );
-		UTIL_Remove( this );
+		//UTIL_Remove( this );
 		return;
 	}
 
@@ -196,7 +196,7 @@ void CBaseProp::Spawn( void )
 		if ( iResult == PARSE_FAILED_BAD_DATA )
 		{
 			DevWarning( "%s at %.0f %.0f %0.f uses model %s, which has an invalid prop_data type. DELETED.\n", GetClassname(), GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z, szModel );
-			UTIL_Remove( this );
+			//UTIL_Remove( this );
 			return;
 		}
 		else if ( iResult == PARSE_FAILED_NO_DATA )
@@ -205,7 +205,7 @@ void CBaseProp::Spawn( void )
 			if ( FClassnameIs( this, "prop_physics" ) )
 			{
 				DevWarning( "%s at %.0f %.0f %0.f uses model %s, which has no propdata which means it must be used on a prop_static. DELETED.\n", GetClassname(), GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z, szModel );
-				UTIL_Remove( this );
+				//UTIL_Remove( this );
 				return;
 			}
 		}
@@ -215,7 +215,7 @@ void CBaseProp::Spawn( void )
 			if ( !dynamic_cast<CPhysicsProp*>(this) )
 			{
 				DevWarning( "%s at %.0f %.0f %0.f uses model %s, which has propdata which means that it be used on a prop_physics. DELETED.\n", GetClassname(), GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z, szModel );
-				UTIL_Remove( this );
+				//UTIL_Remove( this );
 				return;
 			}
 		}

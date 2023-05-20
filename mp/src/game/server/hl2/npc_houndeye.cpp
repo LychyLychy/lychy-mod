@@ -521,7 +521,7 @@ void CNPC_Houndeye::AlertSound ( void )
 //=========================================================
 // DeathSound 
 //=========================================================
-void CNPC_Houndeye::DeathSound ( void )
+void CNPC_Houndeye::DeathSound ( const CTakeDamageInfo& info )
 {
 	EmitSound( "NPC_Houndeye.Die" );
 }
@@ -529,7 +529,7 @@ void CNPC_Houndeye::DeathSound ( void )
 //=========================================================
 // PainSound 
 //=========================================================
-void CNPC_Houndeye::PainSound ( void )
+void CNPC_Houndeye::PainSound (const CTakeDamageInfo& info)
 {
 	EmitSound( "NPC_Houndeye.Pain" );
 }

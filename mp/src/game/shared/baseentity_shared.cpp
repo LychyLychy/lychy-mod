@@ -79,8 +79,8 @@ ConVar	ai_shot_bias_min( "ai_shot_bias_min", "-1.0", FCVAR_REPLICATED );
 ConVar	ai_shot_bias_max( "ai_shot_bias_max", "1.0", FCVAR_REPLICATED );
 ConVar	ai_debug_shoot_positions( "ai_debug_shoot_positions", "0", FCVAR_REPLICATED | FCVAR_CHEAT );
 
-ConVar lychy_fix_black("lychy_fix_black", "0");
-ConVar lychy_fix_brush_rotating("lychy_fix_brush_rotating", "0");
+ConVar lychy_fix_black("lychy_fix_black", "0",FCVAR_REPLICATED);
+ConVar lychy_fix_brush_rotating("lychy_fix_brush_rotating", "0",FCVAR_REPLICATED);
 
 // Utility func to throttle rate at which the "reasonable position" spew goes out
 static double s_LastEntityReasonableEmitTime;
@@ -337,6 +337,8 @@ bool CBaseEntity::KeyValue( const char *szKeyName, const char *szValue )
 		SetRenderColor( tmp.r, tmp.g, tmp.b );
 		if (!(lychy_fix_black.GetBool() && tmp.r == 0 && tmp.g == 0 && tmp.b == 0))
 			SetRenderColor(tmp.r, tmp.g, tmp.b);
+		else
+			SetRenderColor(255, 255, 255);
 		// don't copy alpha, legacy support uses renderamt
 		return true;
 	}

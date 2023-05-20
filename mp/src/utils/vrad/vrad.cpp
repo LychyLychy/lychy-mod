@@ -61,7 +61,7 @@ bool		bRed2Black = true;
 bool		g_bFastAmbient = false;
 bool        g_bNoSkyRecurse = false;
 bool		g_bDumpPropLightmaps = false;
-
+bool g_allowDynamicPropsAsStatic = false;
 
 int			junk;
 
@@ -2681,6 +2681,10 @@ int ParseCommandLine( int argc, char **argv, bool *onlydetail )
 				Warning( "Error: expected a value after '-disppatchradius'\n" );
 				return -1;
 			}
+		}
+		else if (!Q_stricmp(argv[i], "-allowdynamicpropsasstatic "))
+		{
+			g_allowDynamicPropsAsStatic = true;
 		}
 
 #if ALLOWDEBUGOPTIONS

@@ -167,21 +167,23 @@ bool LoadStudioModel( char const* pModelName, char const* pEntityType, CUtlBuffe
 		return false;
 	}
 
-	isstaticprop_ret isStaticProp = IsStaticProp(pHdr);
-	if ( isStaticProp != RET_VALID )
+	if (!g_allowDynamicPropsAsStatic)
 	{
-		if ( isStaticProp == RET_FAIL_NOT_MARKED_STATIC_PROP )
+		isstaticprop_ret isStaticProp = IsStaticProp(pHdr);
+		if (isStaticProp != RET_VALID)
 		{
-			Warning("Error! To use model \"%s\"\n"
-				"      with %s, it must be compiled with $staticprop!\n", pModelName, pEntityType );
+			if (isStaticProp == RET_FAIL_NOT_MARKED_STATIC_PROP)
+			{
+				Warning("Error! To use model \"%s\"\n"
+					"      with %s, it must be compiled with $staticprop!\n", pModelName, pEntityType);
+			}
+			else if (isStaticProp == RET_FAIL_DYNAMIC)
+			{
+				Warning("Error! %s using model \"%s\", which must be used on a dynamic entity (i.e. prop_physics). Deleted.\n", pEntityType, pModelName);
+			}
+			return false;
 		}
-		else if ( isStaticProp == RET_FAIL_DYNAMIC )
-		{
-			Warning("Error! %s using model \"%s\", which must be used on a dynamic entity (i.e. prop_physics). Deleted.\n", pEntityType, pModelName );
-		}
-		return false;
 	}
-
 	// ensure reset
 	pHdr->pVertexBase = NULL;
 	pHdr->pIndexBase  = NULL;

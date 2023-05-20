@@ -395,7 +395,7 @@ void CSoundPatch::Init( IRecipientFilter *pFilter, CBaseEntity *pEnt, int channe
 		m_iszClassName = AllocPooledString( pEnt->GetClassname() );
 	}
 #endif
-}
+}	
 
 //-----------------------------------------------------------------------------
 // Purpose: Ramps the pitch to a new value

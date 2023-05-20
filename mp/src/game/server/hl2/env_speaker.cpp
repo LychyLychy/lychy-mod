@@ -32,6 +32,7 @@ extern ISaveRestoreOps *responseSystemSaveRestoreOps;
 #include "saverestore.h"
 
 LINK_ENTITY_TO_CLASS( env_speaker, CSpeaker );
+LINK_ENTITY_TO_CLASS( speaker, CSpeaker );
 
 BEGIN_DATADESC( CSpeaker )
 

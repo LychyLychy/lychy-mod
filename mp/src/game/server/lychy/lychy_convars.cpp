@@ -1,4 +1,5 @@
 #include "cbase.h"
+#include "baseentity.h"
 
 struct factory_t
 {
@@ -30,3 +31,11 @@ void ReplaceFactory(const char* classnameToReplace, const char* classnameToRepla
 	}
 
 }
+
+void PrecacheSound_CC(const CCommand& args)
+{
+	HSOUNDSCRIPTHANDLE handle = CBaseEntity::PrecacheScriptSound(args.ArgV()[1]);
+	Msg("%s returns %i\n", args.ArgV()[1], handle);
+
+}
+ConCommand precachesound("precachesound", PrecacheSound_CC);

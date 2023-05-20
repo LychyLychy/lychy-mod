@@ -53,6 +53,8 @@ config.cfg
 
 # shader files
 *.tmp
+
+# LAME STUFF
 *.enc
 *.filters
 *.vpc_crc
@@ -66,3 +68,14 @@ Debug*/
 *.hl1
 *.hl2
 *.hl3
+config.cfg
+*.pdb
+*.vmx
+*.cache
+*.tga
+*.lib
+mp/game/mod_hl2/beta/
+mp/game/bin/
+mp/game/mod_hl2/src/
+mp/src/utils/vbsp/Release/
+mp/src/utils/vrad/Release/

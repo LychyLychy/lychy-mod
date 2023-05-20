@@ -248,7 +248,8 @@ void C_EnergyWave::ComputePoint( float s, float t, Vector& pt, Vector& normal, f
 
 void C_EnergyWave::DrawWireframeModel( )
 {
-	IMesh* pMesh = materials->GetDynamicMesh( true, NULL, NULL, m_pWireframe );
+	CMatRenderContextPtr pContext(materials);
+	IMesh* pMesh = pContext->GetDynamicMesh( true, NULL, NULL, m_pWireframe );
 
 	int numLines = (EWAVE_NUM_VERTICAL_POINTS - 1) * EWAVE_NUM_HORIZONTAL_POINTS +
 		EWAVE_NUM_VERTICAL_POINTS * (EWAVE_NUM_HORIZONTAL_POINTS - 1);
@@ -317,7 +318,8 @@ void C_EnergyWave::ComputeEWavePoints( Vector* pt, Vector* normal, float* opacit
 
 void C_EnergyWave::DrawEWavePoints(Vector* pt, Vector* normal, float* opacity)
 {
-	IMesh* pMesh = materials->GetDynamicMesh( true, NULL, NULL, m_pEWaveMat );
+	CMatRenderContextPtr pContext(materials);
+	IMesh* pMesh = pContext->GetDynamicMesh( true, NULL, NULL, m_pEWaveMat );
 
 	int numTriangles = (NUM_SUBDIVISIONS - 1) * (NUM_SUBDIVISIONS - 1) * 2;
 

@@ -29,6 +29,13 @@ typedef const char *AIConcept_t;
 #define TLK_LEAD_MISSINGWEAPON		"TLK_LEAD_MISSING_WEAPON"
 #define TLK_LEAD_IDLE				"TLK_LEAD_IDLE"
 
+// @TODO (toml 02-17-03): make these real
+#define CONCEPT_LEAD_ARRIVAL			"OD_ARRIVAL"
+#define CONCEPT_LEAD_SUCCESS			"OD_CHEESE"
+#define CONCEPT_LEAD_FAILURE			"lead_fail"
+#define CONCEPT_LEAD_COMING_BACK		"OD_STAYPUT"
+#define CONCEPT_LEAD_CATCHUP			"OD_CATCHUP"
+
 //-----------------------------------------------------------------------------
 // class CAI_LeadBehavior
 //

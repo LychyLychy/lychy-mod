@@ -56,6 +56,7 @@ bool		g_NodrawTriggers = false;
 bool		g_DisableWaterLighting = false;
 bool		g_bAllowDetailCracks = false;
 bool		g_bNoVirtualMesh = false;
+bool g_allowDynamicPropsAsStatic = false;
 
 float		g_defaultLuxelSize = DEFAULT_LUXEL_SIZE;
 float		g_luxelScale = 1.0f;
@@ -1015,7 +1016,7 @@ int RunVBSP( int argc, char **argv )
 			Msg ("snap axial = true\n");
 			g_snapAxialPlanes = true;
 		}
-#if 0
+#if 1
 		else if (!Q_stricmp(argv[i], "-maxlightmapdim"))
 		{
 			g_maxLightmapDimension = atof(argv[i+1]);
@@ -1059,7 +1060,7 @@ int RunVBSP( int argc, char **argv )
 		{
 			strcpy (outbase, "/tmp");
 		}
-#if 0
+#if 1
 		else if( !Q_stricmp( argv[i], "-defaultluxelsize" ) )
 		{
 			g_defaultLuxelSize = atof( argv[i+1] );
@@ -1149,6 +1150,10 @@ int RunVBSP( int argc, char **argv )
 			V_StripTrailingSlash( g_szEmbedDir );
 			g_pFullFileSystem->AddSearchPath( g_szEmbedDir, "GAME", PATH_ADD_TO_TAIL );
 			g_pFullFileSystem->AddSearchPath( g_szEmbedDir, "MOD", PATH_ADD_TO_TAIL );
+		}	
+		else if (!Q_stricmp(argv[i], "-allowdynamicpropsasstatic"))
+		{
+			g_allowDynamicPropsAsStatic = true;
 		}
 		else if (argv[i][0] == '-')
 		{

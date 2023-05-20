@@ -487,13 +487,15 @@ bool LoadStudioModel( char const* pModelName, CUtlBuffer& buf )
 		return false;
 	}
 
-	if (!IsStaticProp(pHdr))
+	if (!g_allowDynamicPropsAsStatic)
 	{
-		Warning("Error! To use model \"%s\"\n"
-			"      as a static prop, it must be compiled with $staticprop!\n", pModelName );
-		return false;
+		if (!IsStaticProp(pHdr))
+		{
+			Warning("Error! To use model \"%s\"\n"
+				"      as a static prop, it must be compiled with $staticprop!\n", pModelName);
+			return false;
+		}
 	}
-
 	// ensure reset
 	pHdr->pVertexBase = NULL;
 	pHdr->pIndexBase  = NULL;

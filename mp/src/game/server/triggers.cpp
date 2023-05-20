@@ -126,6 +126,7 @@ END_DATADESC()
 LINK_ENTITY_TO_CLASS( trigger, CBaseTrigger );
 
 
+
 CBaseTrigger::CBaseTrigger()
 {
 	AddEFlags( EFL_USE_PARTITION_WHEN_NOT_SOLID );

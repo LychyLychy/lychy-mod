@@ -1423,6 +1423,8 @@ bool CWeaponGravityGun::Reload( void )
 }
 
 #define NUM_COLLISION_TESTS 2500
+void CC_CollisionTest(const CCommand& args);
+/* //Lychy: error LNK2005: "void __cdecl CC_CollisionTest(class CCommand const &)" (?CC_CollisionTest@@YAXABVCCommand@@@Z) already defined in util.obj
 void CC_CollisionTest( const CCommand &args )
 {
 	if ( !physenv )
@@ -1519,5 +1521,5 @@ void CC_CollisionTest( const CCommand &args )
 		NDebugOverlay::Line( start, results[i], red, green, blue, false, 2 );
 	}
 #endif
-}
+}*/
 static ConCommand collision_test("collision_test", CC_CollisionTest, "Tests collision system", FCVAR_CHEAT );

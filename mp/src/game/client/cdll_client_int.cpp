@@ -1141,8 +1141,8 @@ void CHLClient::PostInit()
 
 	g_ClientVirtualReality.StartupComplete();
 
-#ifdef HL1MP_CLIENT_DLL
-	if ( s_cl_load_hl1_content.GetBool() && steamapicontext && steamapicontext->SteamApps() )
+//#ifdef HL1MP_CLIENT_DLL
+	if ( /*s_cl_load_hl1_content.GetBool()  && */steamapicontext && steamapicontext->SteamApps())
 	{
 		char szPath[ MAX_PATH*2 ];
 		int ccFolder= steamapicontext->SteamApps()->GetAppInstallDir( 280, szPath, sizeof(szPath) );
@@ -1153,9 +1153,12 @@ void CHLClient::PostInit()
 
 			g_pFullFileSystem->AddSearchPath( szPath, "HL1" );
 			g_pFullFileSystem->AddSearchPath( szPath, "GAME" );
+			strcat(szPath, "\\hl1_pak.vpk");
+			g_pFullFileSystem->AddSearchPath(szPath, "GAME");
 		}
+
 	}
-#endif
+//#endif
 }
 
 //-----------------------------------------------------------------------------

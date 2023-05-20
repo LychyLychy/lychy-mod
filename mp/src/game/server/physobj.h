@@ -120,7 +120,7 @@ public:
 
 	// Input handlers
 	void InputExplode( inputdata_t &inputdata );
-
+	inline virtual void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) { Explode(pActivator, pCaller);};
 	DECLARE_DATADESC();
 private:
 	

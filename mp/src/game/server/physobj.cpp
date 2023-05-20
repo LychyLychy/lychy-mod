@@ -874,15 +874,20 @@ BEGIN_DATADESC( CPhysExplosion )
 
 	// Outputs 
 	DEFINE_OUTPUT( m_OnPushedPlayer, "OnPushedPlayer" ),
+	DEFINE_USEFUNC(Use),
 
 END_DATADESC()
 
-
+/*void CPhysExplosion::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+{
+	Explode(pActivator, pCaller);
+}*/
 void CPhysExplosion::Spawn( void )
 {
 	SetMoveType( MOVETYPE_NONE );
 	SetSolid( SOLID_NONE );
 	SetModelName( NULL_STRING );
+	SetUse(&CPhysExplosion::Use);
 }
 
 float CPhysExplosion::GetRadius( void )

@@ -278,6 +278,7 @@ void CGrenadeSpit::Precache( void )
 	PrecacheModel("models/spitball_small.mdl"); 
 
 	PrecacheScriptSound( "GrenadeSpit.Hit" );
+	PrecacheScriptSound("NPC_Antlion.PoisonBall");
 
 	PrecacheParticleSystem( "antlion_spit_player" );
 	PrecacheParticleSystem( "antlion_spit" );

@@ -3,7 +3,7 @@
 	game 		"Lychy Mod"
 	title 		"HALF-LIFE'"
 	title2		""
-	supportsvr	1
+	supportsvr	0
 
 	type		singleplayer_only
 
@@ -39,6 +39,7 @@
 			// Note that this folder is scanned only when the game is booted.
 			game+mod			hl2/custom/*
 
+
 			// Now search loose files.  We'll set the directory containing the gameinfo.txt file
 			// as the first "mod" search path (after any user customizations).  This is also the one
 			// that's used when writing to the "mod" path.
@@ -70,7 +71,8 @@
 			// Last, mount in shared HL2 loose files
 			game				|all_source_engine_paths|hl2
 			platform			|all_source_engine_paths|platform
-			game			"C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\beta\"
+			game			"|gameinfo_path|beta"
+			game			"E:\SteamLibrary\steamapps\common\Half-Life 2\ep2\ep2_pak.vpk"
 		}
 	}
 }

@@ -116,6 +116,11 @@ $Project "Client (Lychy)"
 		$Folder	"Lychy"
 		{
 			$File	"lychy\c_doom_base.cpp"
+			$File	"lychy\c_npc_combinegunship_beta.cpp"
+			$File	"hl2\c_weapon_gravitygun.cpp"
+			$File	"hl2\c_energy_wave.cpp"
+			$File	"hl2\energy_wave_effect.cpp"
+			$File	"hl2\energy_wave_effect.h"
 		}
 	}
 }

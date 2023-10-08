@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/Weapons/W_IRifle/W_IRifle"
+	"$surfaceprop" "metal"
+	"$envmap" "Environment Maps/envmapcombine"
+	"$envmapsphere" 1
+	"$envmaptint" "[ .5 .5 .5]"
+	"$basealphaenvmapmask" 1
+	"$nocull" 1
+	"$envmapmask" "models/Weapons/W_IRifle/W_IRifle_mask"
+}

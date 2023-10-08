@@ -127,6 +127,7 @@ void CAntlionMakerManager::LevelInitPostEntity( void )
 //-----------------------------------------------------------------------------
 
 LINK_ENTITY_TO_CLASS( npc_antlion_template_maker, CAntlionTemplateMaker );
+LINK_ENTITY_TO_CLASS( npc_antlionmaker, CAntlionTemplateMaker );
 
 //DT Definition
 BEGIN_DATADESC( CAntlionTemplateMaker )

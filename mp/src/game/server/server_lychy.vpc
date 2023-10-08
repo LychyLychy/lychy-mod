@@ -314,6 +314,15 @@ $Project "Server (Lychy)"
 			$File	"hl2\grenade_energy.h"
 			$File	"hl2\energy_wave.cpp"
 			$File	"hl2\weapon_rollerwand.cpp"
+			$File	"lychy\npc_combines_beta.cpp"
+			$File	"lychy\npc_combine_beta.cpp"
+			$File	"lychy\weapon_ar2_beta.cpp"
+			$File	"lychy\npc_turret_floor_beta.cpp"
+			$File	"lychy\weapon_smg1_beta.cpp"
+			$File	"lychy\npc_manhack_beta.cpp"
+			$File	"lychy\splash.cpp"
+			$File	"hl2\weapon_ar1.cpp"
+			
 		}
 	}
 }

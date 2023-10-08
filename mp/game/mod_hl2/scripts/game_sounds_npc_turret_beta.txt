@@ -1,0 +1,332 @@
+"NPC_Turret.Ping"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"turret/tu_ping.wav"
+}
+
+"NPC_Turret.Deploy"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"turret/tu_deploy.wav"
+}
+
+"NPC_Turret.Retire"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.500"
+	"pitch"			"PITCH_HIGH"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"turret/tu_deploy.wav"
+}
+
+"NPC_Turret.Alert"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.500"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"turret/tu_alert.wav"
+}
+
+"NPC_Turret.Die"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"turret/tu_die.wav"
+		"wave"	"turret/tu_die2.wav"
+		"wave"	"turret/tu_die3.wav"
+	}
+}
+
+"CeilingTurret.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"			"weapons/smg1/smg1_fire1.wav"
+}
+
+"MiniTurret.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"weapons/hks1.wav"
+		"wave"	"weapons/hks2.wav"
+		"wave"	"weapons/hks3.wav"
+	}
+}
+
+"Sentry.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"weapons/hks1.wav"
+		"wave"	"weapons/hks2.wav"
+		"wave"	"weapons/hks3.wav"
+	}
+}
+
+"Sentry.Die"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"turret/tu_die.wav"
+		"wave"	"turret/tu_die2.wav"
+		"wave"	"turret/tu_die3.wav"
+	}
+}
+
+"NPC_CeilingTurret.Retire"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/retract.wav"
+}
+
+"NPC_CeilingTurret.Deploy"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/deploy.wav"
+}
+
+"NPC_CeilingTurret.Move"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.100"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/move_loop1.wav"
+}
+
+"NPC_CeilingTurret.Active"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/active.wav"
+}
+
+"NPC_CeilingTurret.Alert"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/alert.wav"
+}
+
+"NPC_CeilingTurret.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"			"npc/turret_floor/shoot1.wav"
+}
+
+"NPC_CeilingTurret.Ping"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/ping.wav"
+}
+
+"NPC_CeilingTurret.Die"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/turret_floor/die.wav"
+}
+
+"NPC_FloorTurretBeta.Retire"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"wave"			"npc/turret_floor/retract.wav"
+}
+
+"NPC_FloorTurretBeta.Deploy"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"wave"			"npc/turret_floor/deploy.wav"
+}
+
+"NPC_FloorTurretBeta.Move"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.100"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"wave"			"npc/turret_floor/move_loop1.wav"
+}
+
+"NPC_FloorTurretBeta.Activate"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_IDLE"
+
+	"wave"			"npc/turret_floor/active.wav"
+}
+
+"NPC_FloorTurretBeta.Alert"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"wave"			"npc/turret_floor/alert.wav"
+}
+
+"NPC_FloorTurretBeta.Shoot"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"			"npc/turret_floor/shoot1.wav"
+}
+
+"NPC_FloorTurretBeta.ShotSounds"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"rndwave"
+	{
+		"wave"	"npc/turret_floor/shoot1.wav"
+		"wave"	"npc/turret_floor/shoot2.wav"
+		"wave"	"npc/turret_floor/shoot3.wav"
+	}
+}
+
+"NPC_FloorTurretBeta.Die"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"wave"			"npc/turret_floor/die.wav"
+}
+
+"NPC_FloorTurretBeta.Retract"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"wave"			"npc/turret_floor/retract.wav"
+}
+
+"NPC_FloorTurretBeta.Alarm"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"wave"			"npc/turret_floor/alarm.wav"
+}
+
+"NPC_FloorTurretBeta.Ping"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_IDLE"
+
+	"wave"			"npc/turret_floor/ping.wav"
+}

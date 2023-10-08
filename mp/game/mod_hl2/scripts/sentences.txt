@@ -1439,3 +1439,207 @@ HAZ_GMAN0 vo/haz/haz_gm01a {Len 8.59}
 HAZ_GMAN1 vo/haz/haz_gm01b {Len 5.61}
 HAZ_GMAN2 vo/haz/haz_gm02 {Len 1.04}
 HAZ_GMAN3 vo/haz/haz_gm03 {Len 1.42}
+
+//PAIN
+BETA_COMBINE_PAIN0 npc/combine_soldier/pain1 {Len 0.38}
+BETA_COMBINE_PAIN1 npc/combine_soldier/pain2 {Len 0.30}
+BETA_COMBINE_PAIN2 npc/combine_soldier/pain3 {Len 0.26}
+
+
+//DIE
+BETA_COMBINE_DIE0 npc/combine_soldier/die1 (v50) click_terminated {Len 0.62}
+BETA_COMBINE_DIE1 npc/combine_soldier/die2 (v50) click_terminated {Len 0.92}
+BETA_COMBINE_DIE2 npc/combine_soldier/die3 (v50) click_terminated {Len 0.80}
+
+
+//KICK
+BETA_COMBINE_KICK0 npc/combine_soldier/kick1 {Len 0.26}
+BETA_COMBINE_KICK1 npc/combine_soldier/kick2 {Len 0.31}
+
+
+
+//ANNOUNCE
+BETA_COMBINE_ANNOUNCE0 npc/combine_soldier/(v75) clik announce1 click_off {Len 0.96}
+BETA_COMBINE_ANNOUNCE1 npc/combine_soldier/(v75) clik announce2 click_off {Len 1.22}
+BETA_COMBINE_ANNOUNCE2 npc/combine_soldier/(v75) clik announce3 click_off {Len 1.45}
+
+
+//DETECT MINE
+BETA_COMBINE_DETECT_MINE0 npc/combine_soldier/(v20) clik detect_mine1 click_off {Len 1.03}
+BETA_COMBINE_DETECT_MINE1 npc/combine_soldier/(v20) clik detect_mine2 click_off {Len 1.21}
+
+
+//CLEAR MINE
+BETA_COMBINE_CLEAR_MINE0 npc/combine_soldier/(v20) clik clear_mine1 click_off {Len 1.00}
+BETA_COMBINE_CLEAR_MINE1 npc/combine_soldier/(v20) clik clear_mine2 click_off {Len 1.40}
+BETA_COMBINE_CLEAR_MINE2 npc/combine_soldier/(v20) clik clear_mine3 click_off {Len 1.16}
+
+
+//ASSAULT
+BETA_COMBINE_ASSAULT0 npc/combine_soldier/(v75) clik assault1 click_off {Len 0.87}
+BETA_COMBINE_ASSAULT1 npc/combine_soldier/(v75) clik assault2 click_off {Len 1.23}
+BETA_COMBINE_ASSAULT2 npc/combine_soldier/(v75) clik assault3 click_off {Len 1.08}
+
+
+//FLANK
+BETA_COMBINE_FLANK0 npc/combine_soldier/(v75) clik flank1 click_off {Len 1.36}
+BETA_COMBINE_FLANK1 npc/combine_soldier/(v75) clik flank2 click_off {Len 1.45}
+BETA_COMBINE_FLANK2 npc/combine_soldier/(v75) clik flank3 click_off {Len 1.15}
+
+
+//GO ALERT
+BETA_COMBINE_GO_ALERT0 npc/combine_soldier/(v75) clik go_alert1 click_off {Len 0.77}
+BETA_COMBINE_GO_ALERT1 npc/combine_soldier/(v75) clik go_alert2 click_off {Len 0.70}
+BETA_COMBINE_GO_ALERT2 npc/combine_soldier/(v75) clik go_alert3 click_off {Len 0.79}
+
+
+//LOST LONG
+BETA_COMBINE_LOST_LONG0 npc/combine_soldier/(v75) clik lost_long1 click_off {Len 1.14}
+BETA_COMBINE_LOST_LONG1 npc/combine_soldier/(v75) clik lost_long2 click_off {Len 1.08}
+BETA_COMBINE_LOST_LONG2 npc/combine_soldier/(v75) clik lost_long3 click_off {Len 1.05}
+//BETA_COMBINE_LOST_LONG3 npc/combine_soldier/clik lost_long4 click_off {Len 1.89}
+//BETA_COMBINE_LOST_LONG4 npc/combine_soldier/clik lost_long5 click_off {Len 1.42}
+//BETA_COMBINE_LOST_LONG5 npc/combine_soldier/clik lost_long6 click_off {Len 1.00}
+//BETA_COMBINE_LOST_LONG6 npc/combine_soldier/clik lost_long7 click_off {Len 2.12}
+
+//LOST SHORT
+BETA_COMBINE_LOST_SHORT0 npc/combine_soldier/(v75) clik lost_short1 click_off {Len 1.56}
+BETA_COMBINE_LOST_SHORT1 npc/combine_soldier/(v75) clik lost_short2 click_off {Len 1.19}
+BETA_COMBINE_LOST_SHORT2 npc/combine_soldier/(v75) clik lost_short3 click_off {Len 1.13}
+
+//MAN DOWN
+BETA_COMBINE_MAN_DOWN0 npc/combine_soldier/(v75) clik man_down1 click_off {Len 1.28}
+BETA_COMBINE_MAN_DOWN1 npc/combine_soldier/(v75) clik man_down2 click_off {Len 1.41}
+BETA_COMBINE_MAN_DOWN2 npc/combine_soldier/(v75) clik man_down3 click_off {Len 1.45}
+
+//PLAYER DEAD
+BETA_COMBINE_PLAYER_DEAD0 npc/combine_soldier/(v75) clik player_dead1 click_off {Len 0.82}
+BETA_COMBINE_PLAYER_DEAD1 npc/combine_soldier/(v75) clik player_dead2 click_off {Len 1.87}
+BETA_COMBINE_PLAYER_DEAD2 npc/combine_soldier/(v75) clik player_dead3 click_off {Len 1.38}
+
+
+//REFIND ENEMY
+BETA_COMBINE_REFIND_ENEMY0 npc/combine_soldier/(v75) clik refind_enemy1 click_off {Len 0.77}
+BETA_COMBINE_REFIND_ENEMY1 npc/combine_soldier/(v75) clik refind_enemy2 click_off {Len 0.98}
+BETA_COMBINE_REFIND_ENEMY2 npc/combine_soldier/(v75) clik refind_enemy3 click_off {Len 1.19}
+//BETA_COMBINE_REFIND_ENEMY3 npc/combine_soldier/clik refind_enemy4 click_off {Len 0.88}
+
+//SPOT GRENADE
+BETA_COMBINE_SPOT_GRENADE0 npc/combine_soldier/(v75) clik spot_grenade1 click_off {Len 1.15}
+BETA_COMBINE_SPOT_GRENADE1 npc/combine_soldier/(v75) clik spot_grenade2 click_off {Len 0.99}
+BETA_COMBINE_SPOT_GRENADE2 npc/combine_soldier/(v75) clik spot_grenade3 click_off {Len 1.95}
+
+
+//THROW GRENADE
+BETA_COMBINE_THROW_GRENADE0 npc/combine_soldier/(v75) clik throw_grenade1 click_off {Len 1.31}
+BETA_COMBINE_THROW_GRENADE1 npc/combine_soldier/(v75) clik throw_grenade2 click_off {Len 1.33}
+BETA_COMBINE_THROW_GRENADE2 npc/combine_soldier/(v75) clik throw_grenade3 click_off {Len 1.24}
+
+
+// Combine Elite
+BETA_COMBINE_GREN0 npc/combine_soldier/(v30) clik(p120) grenade! click_off {Len 1.17}
+BETA_COMBINE_GREN1 npc/combine_soldier/(t30) clik take!(e75) cover!(s5) click_off {Len 0.95}
+BETA_COMBINE_GREN2 npc/combine_soldier/clik clik oh! shit! click_off {Len 1.59}
+BETA_COMBINE_GREN3 npc/combine_soldier/(p110 t40) clik(p120) get!(e78) down!(t30) click_off {Len 0.78}
+BETA_COMBINE_GREN4 npc/combine_soldier/clik(p110) (t40) of!(e75) god! click_off(p110) {Len 0.82}
+BETA_COMBINE_GREN5 npc/combine_soldier/clik no! click_off {Len 0.91}
+BETA_COMBINE_GREN6 npc/combine_soldier/clik move! click_off(p120) {Len 1.04}
+
+// Player Alert
+BETA_COMBINE_ALERT0 npc/combine_soldier/(v30) clik(p110) target click_off {Len 1.13}
+BETA_COMBINE_ALERT1 npc/combine_soldier/(v10) (t30) squad!, we!(e80) got!(e80) freeman!(t20 p105), click_off(p110) {Len 2.14}
+BETA_COMBINE_ALERT2 npc/combine_soldier/clik movement! click_off {Len 1.18}
+BETA_COMBINE_ALERT3 npc/combine_soldier/(t40) shit!(t20), (t50) we! got! hostiles!(p120 t0) click_off {Len 2.07}
+BETA_COMBINE_ALERT4 npc/combine_soldier/(t20) clik(p110) squad!, get!(e80) freeman!, click_off(p110) clik {Len 2.37}
+BETA_COMBINE_ALERT5 npc/combine_soldier/(t20) clik squad!, neutralize!(e90) freeman! click_off {Len 2.67}
+BETA_COMBINE_ALERT6 npc/combine_soldier/(t30) clik clik move!(e75) in! click_off(p120) {Len 1.06}
+
+// Monster Alert
+BETA_COMBINE_MONST0 npc/combine_soldier/(v30) clik (t30) movement!(t0) click_off(p120) {Len 1.72}
+BETA_COMBINE_MONST1 npc/combine_soldier/clik(p110) (t40) clik(p120) we!(e75) got! bogies! click_off {Len 1.30}
+BETA_COMBINE_MONST2 npc/combine_soldier/clik clik (t30) alien!(e85) alert! click_off {Len 1.46}
+BETA_COMBINE_MONST3 npc/combine_soldier/(v10) clik(p110) (t50) bogies!(t0), my! sector!(t0) click_off {Len 2.28}
+
+// Take cover
+BETA_COMBINE_COVER0 npc/combine_soldier/(v30) clik (t40) cover!(e75) fire! click_off {Len 0.95}
+BETA_COMBINE_COVER1 npc/combine_soldier/clik (t30) take! cover!(t0) click_off
+BETA_COMBINE_COVER2 npc/combine_soldier/clik (t45) we! need! backup!(t10) click_off
+BETA_COMBINE_COVER3 npc/combine_soldier/clik(p120) (t40) two!(e75) hot!(e80) here! click_off
+BETA_COMBINE_COVER4 npc/combine_soldier/clik(p110) (t30) fall!(e80) out! clik click_off
+BETA_COMBINE_COVER5 npc/combine_soldier/clik(p120) (t20) clear! this! area! click_off
+BETA_COMBINE_COVER6 npc/combine_soldier/clik (t40) god! damn! click_off
+
+
+// Throw grenade
+BETA_COMBINE_THROW0 npc/combine_soldier/(v30) clik (t35) cover! click_off(p120) {Len 1.66}
+BETA_COMBINE_THROW1 npc/combine_soldier/clik (t30) take!(e75) this!(e100 t0) click_off {Len 1.03}
+BETA_COMBINE_THROW2 npc/combine_soldier/(v10) clik(p120) (t40) fire!(e90) in!(e90) the!(e60) hole!(e100) click_off {Len 1.37}
+BETA_COMBINE_THROW3 npc/combine_soldier/clik(p110) (t35 e80) squad, stay down click_off {Len 1.51}
+ 
+// Taunt
+BETA_COMBINE_TAUNT0 npc/combine_soldier/(v30) clik(p110) (t40) request! backup! click_off(p120) clik {Len 1.32}
+BETA_COMBINE_TAUNT1 npc/combine_soldier/clik(p120) (t40) roger, hold position click_off {Len 1.82}
+BETA_COMBINE_TAUNT2 npc/combine_soldier/clik (t40) we!(e80) will!(e75) kick!(e80) your!(e75) ass! click_off {Len 1.55}
+BETA_COMBINE_TAUNT3 npc/combine_soldier/clik (t40) mister, you(e75) are going down click_off {Len 2.28}
+BETA_COMBINE_TAUNT4 npc/combine_soldier/clik(p120) (t40) you got nothing click_off {Len 1.45}
+BETA_COMBINE_TAUNT5 npc/combine_soldier/(v10) clik (t30 e75) uhh, we got heavy fire here click_off {Len 2.05}
+
+// Charge
+BETA_COMBINE_CHARGE0 npc/combine_soldier/(v30) clik go! click_off(p120) {Len 0.91}
+BETA_COMBINE_CHARGE1 npc/combine_soldier/clik(p110) (t40) move!(e75) in! click_off {Len 0.84}
+BETA_COMBINE_CHARGE2 npc/combine_soldier/(v10) clik (t40) go! recon! click_off(p120) {Len 1.21}
+BETA_COMBINE_CHARGE3 npc/combine_soldier/clik lets! go! click_off(p120) {Len 1.37}
+
+// Idle
+BETA_COMBINE_IDLE0 npc/combine_soldier/(v30) gr_idle1 {Len 2.97}
+BETA_COMBINE_IDLE1 npc/combine_soldier/gr_idle2 {Len 2.50}
+BETA_COMBINE_IDLE2 npc/combine_soldier/gr_idle3 {Len 2.50}
+
+
+BETA_COMBINE_QUEST0 npc/combine_soldier/(v30) clik (t20) maintain lookout click_off(p120) {Len 1.56}
+BETA_COMBINE_QUEST1 npc/combine_soldier/clik (t30) radio(e75) check, over click_off(p120) {Len 1.65}
+BETA_COMBINE_QUEST2 npc/combine_soldier/(v10) clik (t25) stay(e80) alert people click_off(p120) {Len 1.83}
+BETA_COMBINE_QUEST3 npc/combine_soldier/clik(p110) (t30) squad, quiet(e75) down click_off(p120) {Len 1.92}
+BETA_COMBINE_QUEST4 npc/combine_soldier/clik(p120) (t30) hold position, click_off {Len 1.58}
+BETA_COMBINE_QUEST5 npc/combine_soldier/clik(p120) (t30) sweep(e80) that sector, click_off(p120) click_off(p120) {Len 1.85}
+BETA_COMBINE_QUEST6 npc/combine_soldier/clik(p120) (t30) uhh, go tango sweep formation click_off(p120) click_off(p120) {Len 3.12}
+BETA_COMBINE_QUEST7 npc/combine_soldier/clik(p120) (t30) echo(e75) mission is go click_off(p120) click_off(p120) {Len 2.05}
+BETA_COMBINE_QUEST8 npc/combine_soldier/clik(p110) (t30) fire(e75) team, weapons(e75) check ok click_off(p120) click_off {Len 2.72}
+BETA_COMBINE_QUEST9 npc/combine_soldier/clik(p110) (t30) fire(e75) team, objective foxtrot niner click_off(p120) {Len 3.20}
+BETA_COMBINE_QUEST10 npc/combine_soldier/clik (t30) ok(e75) mission, zero(e75) niner click_off {Len 2.33}
+BETA_COMBINE_QUEST11 npc/combine_soldier/clik (t30) squad, stay(e80) alert(e80) four freeman, over click_off {Len 3.53}
+
+BETA_COMBINE_ANSWER0 npc/combine_soldier/(v30) clik(p120) (t30) affirmative click_off {Len 1.57}
+BETA_COMBINE_ANSWER1 npc/combine_soldier/clik(p120) (t10) yessir click_off {Len 1.06}
+BETA_COMBINE_ANSWER2 npc/combine_soldier/clik(p120) (t30) affirmative, sir click_off {Len 1.57}
+BETA_COMBINE_ANSWER3 npc/combine_soldier/clik (t30) negative clik(p120) click_off {Len 0.94}
+BETA_COMBINE_ANSWER4 npc/combine_soldier/clik(p105) (t30) roger click_off {Len 0.84}
+BETA_COMBINE_ANSWER5 npc/combine_soldier/clik(p105) (t30) ok control click_off {Len 1.46}
+BETA_COMBINE_ANSWER6 npc/combine_soldier/clik(p105) (t30) that(e75) is, uhh, affirmative click_off {Len 2.31}
+BETA_COMBINE_ANSWER7 npc/combine_soldier/(v10) clik(p110) (t20) uhh roger(e75) that, clik(p120) click_off {Len 1.87}
+
+
+BETA_COMBINE_CLEAR0 npc/combine_soldier/(v30) clik (t30) area check click_off(p120) {Len 2.30}
+BETA_COMBINE_CLEAR1 npc/combine_soldier/clik (t30) bravo(e75) post, clear click_off(p120) {Len 1.70}
+BETA_COMBINE_CLEAR2 npc/combine_soldier/clik(p110) (t30) delta(e75) team, clear click_off(p120) {Len 1.62}
+BETA_COMBINE_CLEAR3 npc/combine_soldier/clik(p110) (t40) no sign hostiles sir, over click_off(p120) {Len 2.62}
+BETA_COMBINE_CLEAR4 npc/combine_soldier/clik (t30) no(e80) sign objective sir, over click_off(p120) {Len 2.77}
+BETA_COMBINE_CLEAR5 npc/combine_soldier/clik (t30) no(e75) movement this level click_off(p120) {Len 1.91}
+BETA_COMBINE_CLEAR6 npc/combine_soldier/clik(p120) (t28) sir, sector secure, over click_off(p120) click_off(p120) {Len 2.76}
+BETA_COMBINE_CLEAR7 npc/combine_soldier/clik(p120) (t30) command(e75) post, team in position, over click_off {Len 3.13}
+BETA_COMBINE_CLEAR8 npc/combine_soldier/clik (t30) recon, in(e75) position, all quiet click_off(p120) {Len 2.88}
+BETA_COMBINE_CLEAR9 npc/combine_soldier/clik(p110) (t30) lookout(e90) post, all quiet, over click_off(p110) {Len 2.70}
+BETA_COMBINE_CLEAR10 npc/combine_soldier/clik (t40) sir, I(e80) here(e75) something click_off {Len 1.72}
+BETA_COMBINE_CLEAR11 npc/combine_soldier/clik(p120) (t30) sir, uhh, zero movement, over click_off {Len 3.20}
+BETA_COMBINE_CLEAR12 npc/combine_soldier/(v10) clik(p130) (t30) all(e75) clear sir, click_off {Len 1.65}
+
+BETA_COMBINE_CHECK0 npc/combine_soldier/(v30) clik (t30) check(e75) in click_off {Len 1.63}
+BETA_COMBINE_CHECK1 npc/combine_soldier/clik(p110) (t30) squad, are(e80) hostiles clear click_off(p120) {Len 2.72}
+BETA_COMBINE_CHECK2 npc/combine_soldier/clik (t30) check(e80) in people click_off {Len 1.40}
+BETA_COMBINE_CHECK3 npc/combine_soldier/clik (t30) lookout, check(e75) in click_off(p110) {Len 1.53}
+BETA_COMBINE_CHECK4 npc/combine_soldier/clik (t30) recon(e90) team, check(e80) in click_off {Len 2.09}
+BETA_COMBINE_CHECK5 npc/combine_soldier/clik(p130) (t30) movement check, over click_off {Len 1.80}
+BETA_COMBINE_CHECK6 npc/combine_soldier/clik (t30) check your zone, over, click_off {Len 2.43}
+BETA_COMBINE_CHECK7 npc/combine_soldier/clik (t30) everything(e85) ok(e75) there, click_off(p130) {Len 1.66}
+
+//SCENE SECTION

@@ -8,6 +8,8 @@
 
 surfaceproperties_manifest
 {
+	"file_beta"	"scripts/surfaceproperties_beta.txt"
+	"file_betasounds"	"scripts/surfaceproperties_betasounds.txt"
 	"file"		"scripts/surfaceproperties.txt"
 	
 	// List additional surface property files here:

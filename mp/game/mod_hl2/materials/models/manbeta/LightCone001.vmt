@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTranslucentTexture
+	"$translucent" 1
+	"$additive" 1
+	"$basetexture" "models/manbeta/Lightcone001"
+	"$nocull" 1
+}

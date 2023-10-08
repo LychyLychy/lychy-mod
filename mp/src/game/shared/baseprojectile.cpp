@@ -87,7 +87,7 @@ void CBaseProjectile::ResetCollideWithTeammates()
 	// Don't collide with players on the owner's team for the first bit of our life
 	m_bCanCollideWithTeammates = false;
 	
-	SetContextThink( &CBaseProjectile::CollideWithTeammatesThink, gpGlobals->curtime + GetCollideWithTeammatesDelay(), "CollideWithTeammates" );
+	//SetContextThink( &CBaseProjectile::CollideWithTeammatesThink, gpGlobals->curtime + GetCollideWithTeammatesDelay(), "CollideWithTeammates" );
 }
 
 #endif // GAME_DLL

@@ -865,7 +865,7 @@ protected:
 	// Map defined context sets
 	string_t	m_iszResponseContext;
 
-private:
+public:
 	CBaseEntity( CBaseEntity& );
 
 	// list handling
@@ -1815,9 +1815,19 @@ public:
 
 	//Lychy
 	public:
-	string_t m_szAltClassName;
 	string_t m_szMessage;
 
+	inline const Vector& CBaseEntity::GetAbsMins(void) const
+	{
+		return CollisionProp()->CollisionSpaceMins();
+	}
+
+	inline const Vector& CBaseEntity::GetAbsMaxs(void) const
+	{
+		return CollisionProp()->CollisionSpaceMaxs();
+	
+	}
+	CNetworkVar(string_t, m_szAltClassName);
 };
 
 // Send tables exposed in this module.

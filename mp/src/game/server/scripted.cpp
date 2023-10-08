@@ -119,7 +119,9 @@ END_DATADESC()
 
 
 LINK_ENTITY_TO_CLASS( scripted_sequence, CAI_ScriptedSequence );
+LINK_ENTITY_TO_CLASS( aiscripted_sequence, CAI_ScriptedSequence );
 #define CLASSNAME "scripted_sequence"
+#define CLASSNAME2 "aiscripted_sequence"
 
 //-----------------------------------------------------------------------------
 // Purpose: Cancels the given scripted sequence.
@@ -128,7 +130,7 @@ LINK_ENTITY_TO_CLASS( scripted_sequence, CAI_ScriptedSequence );
 void CAI_ScriptedSequence::ScriptEntityCancel( CBaseEntity *pentCine, bool bPretendSuccess )
 {
 	// make sure they are a scripted_sequence
-	if ( FClassnameIs( pentCine, CLASSNAME ) )
+	if ( FClassnameIs( pentCine, CLASSNAME ) || FClassnameIs(pentCine,CLASSNAME2))
 	{
 		CAI_ScriptedSequence *pCineTarget = (CAI_ScriptedSequence *)pentCine;
 

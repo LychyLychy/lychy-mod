@@ -35,6 +35,7 @@ public:
 	DECLARE_CLASS( CRecharge, CBaseToggle );
 
 	void Spawn( );
+	void Precache( );
 	bool CreateVPhysics();
 	int DrawDebugTextOverlays(void);
 	void Off(void);
@@ -774,4 +775,10 @@ void CNewRecharge::Off(void)
 			SetThink( NULL );
 		}
 	}
+}
+void CRecharge::Precache()
+{
+	PrecacheScriptSound("SuitRecharge.Deny");
+	PrecacheScriptSound("SuitRecharge.Start");
+	PrecacheScriptSound("SuitRecharge.ChargingLoop");
 }

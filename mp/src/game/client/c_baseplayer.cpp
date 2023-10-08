@@ -1263,7 +1263,24 @@ void C_BasePlayer::Flashlight( void )
 	{
 		ve = dynamic_cast< C_BaseAnimating* >( GetObserverTarget() );
 	}
+
+	// Add muzzle flash to gun model if player is flashing
+	if (ve && ve->IsEffectActive(EF_MUZZLEFLASH))
+	{
+		if (this == GetLocalPlayer())
+		{
+			for (int i = 0; i < MAX_VIEWMODELS; i++)
+			{
+				C_BaseViewModel* vm = GetViewModel(i);
+				if (!vm)
+					continue;
+
+				vm->ActivateEffect(EF_MUZZLEFLASH, true);
+			}
+		}
+	}
 }
+
 
 
 //-----------------------------------------------------------------------------

@@ -98,7 +98,8 @@ public:
 	{
 		m_iszBounceSound = MAKE_STRING( pszBounceSound );
 	}
-
+	inline CBaseCombatCharacter* GetOwner(void) { return GetThrower(); }
+	inline void				  SetOwner(CBaseCombatCharacter* pOwner) { SetThrower(pOwner); }
 	CBaseCombatCharacter *GetThrower( void );
 	void				  SetThrower( CBaseCombatCharacter *pThrower );
 	CBaseEntity *GetOriginalThrower() { return m_hOriginalThrower; }

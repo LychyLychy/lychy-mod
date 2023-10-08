@@ -80,4 +80,7 @@ game_sounds_manifest
 	"precache_file"		"scripts/game_sounds_npc_bullsquid.txt"
 	"precache_file"		"scripts/game_sounds_npc_houndeye.txt"
 	"precache_file"		"scripts/npc_sounds_antlion_episodic.txt"
+	"precache_file"		"scripts/game_sounds_npc_turret_beta.txt"
+	"precache_file"		"scripts/game_sounds_npc_manhack_beta.txt"
+	"precache_file"		"scripts/sounds.txt"
 }

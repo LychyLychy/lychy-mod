@@ -473,6 +473,9 @@ BEGIN_RECV_TABLE_NOBASE(C_BaseEntity, DT_BaseEntity)
 	RecvPropInt		( RECVINFO( m_bAnimatedEveryTick ), 0, RecvProxy_InterpolationAmountChanged ),
 	RecvPropBool	( RECVINFO( m_bAlternateSorting ) ),
 
+	//Lychy
+	RecvPropString(RECVINFO(m_szAltClassName)),
+
 #ifdef TF_CLIENT_DLL
 	RecvPropArray3( RECVINFO_ARRAY(m_nModelIndexOverrides),	RecvPropInt( RECVINFO(m_nModelIndexOverrides[0]) ) ),
 #endif
@@ -6507,3 +6510,16 @@ void CC_CL_Find_Ent_Index( const CCommand& args )
 	}
 }
 static ConCommand cl_find_ent_index("cl_find_ent_index", CC_CL_Find_Ent_Index, "Display data for clientside entity matching specified index.\nFormat: cl_find_ent_index <index>\n", FCVAR_CHEAT);
+
+//-----------------------------------------------------------------------------
+// Purpose: 
+// Input  : nEffectMask - 
+//			bActive - 
+//-----------------------------------------------------------------------------
+void C_BaseEntity::ActivateEffect(int nEffectMask, bool bActive)
+{
+	if (bActive)
+		m_fEffects |= nEffectMask;
+	else
+		m_fEffects &= ~nEffectMask;
+}

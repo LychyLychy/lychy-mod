@@ -121,6 +121,8 @@ $Project "Client (Lychy)"
 			$File	"hl2\c_energy_wave.cpp"
 			$File	"hl2\energy_wave_effect.cpp"
 			$File	"hl2\energy_wave_effect.h"
+			$File	"lychy\c_npc_manhack_beta.cpp"
+			$File	"lychy\c_splash.cpp"
 		}
 	}
 }

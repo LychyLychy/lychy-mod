@@ -34,6 +34,12 @@ class CNavArea;
 class CScriptedTarget;
 typedef CHandle<CBaseCombatWeapon> CBaseCombatWeaponHandle;
 
+
+struct proficiencyinfo_t
+{
+	float	value;
+	char* pszName;
+};
 // -------------------------------------
 //  Capability Bits
 // -------------------------------------

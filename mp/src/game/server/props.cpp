@@ -181,7 +181,7 @@ void CBaseProp::Spawn( void )
 	if (!szModel || !*szModel)
 	{
 		Warning( "prop at %.0f %.0f %0.f missing modelname\n", GetAbsOrigin().x, GetAbsOrigin().y, GetAbsOrigin().z );
-		//UTIL_Remove( this );
+		UTIL_Remove( this );
 		return;
 	}
 

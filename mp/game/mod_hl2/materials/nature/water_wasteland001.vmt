@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"%compilewater" 1
+	"$basetexture" "Nature/water_wasteland001"
+	$envmap "Environment Maps/water_wasteland05"
+	
+}

@@ -1,0 +1,118 @@
+"NPC_ManhackBeta.Die"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/gib.wav"
+}
+
+"NPC_ManhackBeta.Bat"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.800"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/bat_away.wav"
+}
+
+"NPC_ManhackBeta.Splash"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"rndwave"
+	{
+		"wave"	"ambient/nature/water/water_splash1.wav"
+		"wave"	"ambient/nature/water/water_splash2.wav"
+		"wave"	"ambient/nature/water/water_splash3.wav"
+	}
+}
+
+"NPC_ManhackBeta.Slice"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/manhack/grind_flesh1.wav"
+		"wave"	"npc/manhack/grind_flesh2.wav"
+		"wave"	"npc/manhack/grind_flesh3.wav"
+	}
+}
+
+"NPC_ManhackBeta.Grind"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"85, 115"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/manhack/grind1.wav"
+		"wave"	"npc/manhack/grind2.wav"
+	}
+}
+
+"NPC_ManhackBeta.EngineNoise"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/mh_blade_snick1.wav"
+}
+
+"NPC_ManhackBeta.Unpack"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"npc/manhack/unpack.wav"
+}
+
+"NPC_ManhackBeta.EngineSound1"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"npc/manhack/mh_engine_loop1.wav"
+}
+
+
+"NPC_ManhackBeta.EngineSound2"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"npc/manhack/mh_engine_loop2.wav"
+}
+
+"NPC_ManhackBeta.BladeSound"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"npc/manhack/mh_blade_loop1.wav"
+}

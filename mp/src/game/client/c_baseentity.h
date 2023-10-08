@@ -1101,6 +1101,7 @@ public:
 	int					GetEffects( void ) const;
 	void				ClearEffects( void );
 	void				SetEffects( int nEffects );
+	void				ActivateEffect(int nEffectMask, bool bActive);
 
 	// Computes the abs position of a point specified in local space
 	void				ComputeAbsPosition( const Vector &vecLocalPosition, Vector *pAbsPosition );
@@ -1307,7 +1308,7 @@ public:
 	byte							m_ubInterpolationFrame;
 	byte							m_ubOldInterpolationFrame;
 
-private:
+public:
 	// Effects to apply
 	int								m_fEffects;
 	unsigned char 					m_nRenderMode;
@@ -1704,6 +1705,10 @@ protected:
 	RenderMode_t m_PreviousRenderMode;
 	color32 m_PreviousRenderColor;
 #endif
+
+	//Lychy
+	public:
+		string_t m_szAltClassName;
 };
 
 EXTERN_RECV_TABLE(DT_BaseEntity);

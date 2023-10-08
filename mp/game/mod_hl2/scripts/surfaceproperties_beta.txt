@@ -1,0 +1,698 @@
+// "surface group" 
+// { 
+// "property" 	"value"
+// ...
+// }
+//
+// thickness: If this value is present, the material is not volumetrically solid
+// it means that the volume should be computed as the surface area times this
+// thickness (for automatic mass).  The inside space beneath the thickness value is air.
+//
+// physics parameters are:
+// density: this is the material density in kg / m^3 (water is 1000)
+// elasticity: This is the collision elasticity (0 - 1.0, 0.01 is soft, 1.0 is hard)
+// friction: this is the physical friction (0 - 1.0, 0.01 is slick, 1.0 is totally rough)
+// dampening: this is the physical drag on an object when in contact with this surface (0 - x, 0 none to x a lot)
+//
+// !!! Do not edit the physics properties (especially density) without the proper references !!!
+//
+// Sounds
+// 
+// stepleft: footstep sound for left foot
+// stepright: footstep sound for right foot
+// impact: Physical impact sound
+// scrape: Looping physics friction sound
+// bulletimpact: bullet impact sound
+// bulletdecal: bullet impact decal name
+// gamematerial: game material index (can be a single letter or a number)
+// 
+
+// NOTE: The properties of "default" will get copied into EVERY material who does not
+// 	 override them!!!
+//
+// "base" means to use the parameters from that material as a base.
+// "base" must appear as the first key in a material
+//
+
+
+// -----------------------------
+// world materials
+// -----------------------------
+
+"default"
+{
+	"density"	"2000"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	"stepleft"	"Default.StepLeft"
+	"stepright"	"Default.StepRight"
+	"bulletimpact"	"Default.BulletImpact"
+	"scrapesmooth"	"Default.Scrape"
+	"scraperough"	"Default.Scrape"
+	"impactsoft"	"Default.Impact"
+	"impacthard"	"Default.Impact"
+	"gamematerial"	"C"
+	"dampening"	"0.0"
+	"jumpfactor" "1.0"
+	"maxspeedfactor" "1.0"
+}
+
+// NOTE: Almost nothing is solid metal - so "metal" is sheet metal
+"solidmetal"
+{
+	"density"	"2700"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	"stepleft"	"SolidMetal.StepLeft"
+	"stepright"	"SolidMetal.StepRight"
+	"impactsoft"	"SolidMetal.Impact"
+	"impacthard"	"SolidMetal.Impact"
+	"scrapesmooth"	"SolidMetal.Scrape"
+	"scraperough"	"SolidMetal.Scrape"
+	"bulletimpact"	"SolidMetal.BulletImpact"
+	"gamematerial"	"M"
+}
+
+// Assume that everything we are building
+// is large enough to be constructed out of a thin sheet of metal
+// only flag a few things as "solidmetal" (I-Beams, anvils, etc)
+"metal"
+{
+	"base"		"solidmetal"
+	"thickness"	"0.1"
+}
+
+"dirt"
+{
+	"density"	"1600"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+	"stepleft"	"Dirt.StepLeft"
+	"stepright"	"Dirt.StepRight"
+	"impactsoft"	"Dirt.Impact"
+	"impacthard"	"Dirt.Impact"
+	"scrapesmooth"	"Dirt.Scrape"
+	"scraperough"	"Dirt.Scrape"
+	"bulletimpact"	"Dirt.BulletImpact"
+	"gamematerial"	"D"
+}
+
+"mud"
+{
+	"base"		 "dirt"
+	"friction"	 "0.6"
+	"maxspeedfactor" "0.5"
+	"jumpfactor" 	 "0.7"
+	"stepleft"	 "Mud.StepLeft"
+	"stepright"	 "Mud.StepRight"
+	"dampening"	 "6.0"
+}
+
+"grass"
+{
+	"base"		"dirt"
+	"stepleft"	"Grass.StepLeft"
+	"stepright"	"Grass.StepRight"
+}
+
+"metalgrate"
+{
+	"thickness"	"0.5"
+	"density"	"1600"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	"stepleft"	"MetalGrate.StepLeft"
+	"stepright"	"MetalGrate.StepRight"
+	"impactsoft"	"MetalGrate.Impact"
+	"impacthard"	"MetalGrate.Impact"
+	"scrapesmooth"	"MetalGrate.Scrape"
+	"scraperough"	"MetalGrate.Scrape"
+	"bulletimpact"	"MetalGrate.BulletImpact"
+	"gamematerial"	"G"
+}
+
+// ~1mm thick metal
+"metalvent"
+{
+	"thickness"	"0.04"
+	"density"	"2700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+	"stepleft"	"MetalVent.StepLeft"
+	"stepright"	"MetalVent.StepRight"
+	"impactsoft"	"MetalVent.Impact"
+	"impacthard"	"MetalVent.Impact"
+	"scrapesmooth"	"MetalVent.Scrape"
+	"scraperough"	"MetalVent.Scrape"
+	"bulletimpact"	"MetalVent.BulletImpact"
+	"gamematerial"	"V"
+}
+
+"metalpanel"
+{
+	"base"		"metal"
+	"thickness"	"0.1"
+	"density"	"2700"
+	"elasticity"	"0.2"
+	"friction"	"0.8"
+	"gamematerial"	"M"
+}
+
+
+"tile"
+{
+	"thickness"	"0.5"
+	"density"	"2700"
+	"elasticity"	"0.3"
+	"friction"	"0.8"
+	"stepleft"	"Tile.StepLeft"
+	"stepright"	"Tile.StepRight"
+	"bulletimpact"	"Tile.BulletImpact"
+	"gamematerial"	"T"
+}
+
+
+"wood"
+{
+	"density"	"700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+	"stepleft"	"Wood.StepLeft"
+	"stepright"	"Wood.StepRight"
+	"bulletimpact"	"Wood.BulletImpact"
+	"impactsoft"	"Wood.Impact"
+	"impacthard"	"Wood.Impact"
+	"scrapesmooth"	"Wood.Scrape"
+	"scraperough"	"Wood.Scrape"
+	"gamematerial"	"W"
+
+}
+
+"woodpanel"
+{
+	"base"		"wood"
+	"thickness"	"1.0"
+	"density"	"700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+	"stepleft"	"WoodPanel.StepLeft"
+	"stepright"	"WoodPanel.StepRight"
+}
+
+"water"
+{
+	"density"	"1000"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+	"stepleft"	"Water.StepLeft"
+	"stepright"	"Water.StepRight"
+	"bulletimpact"	"Water.BulletImpact"
+	"gamematerial"	"S"
+}
+
+"quicksand"
+{
+	"density"	"600"
+	"elasticity"	"2.0"
+}
+
+// wade is a water material for walking in/on water at knee height
+"wade"
+{
+	"base"		"water"
+	"stepleft"	"Wade.StepLeft"
+	"stepright"	"Wade.StepRight"
+	"gamematerial" "X"
+}
+
+// ladder is a fake material for walking on ladders
+"ladder"
+{
+	"base"		"metal"
+	"climbable"	"1.0"
+	"stepleft"	"Ladder.StepLeft"
+	"stepright"	"Ladder.StepRight"
+	"gamematerial" "X"
+}
+
+"glass"
+{
+	"thickness"	"0.5"
+	"density"	"2700"
+	"elasticity"	"0.2"
+	"friction"	"0.5"
+	"bulletimpact"	"Glass.BulletImpact"
+	"gamematerial"	"Y"
+}
+
+"computer"
+{
+	"base"		"metalgrate"
+	"bulletimpact"	"Computer.BulletImpact"
+	"gamematerial"	"P"
+}
+
+"concrete"
+{
+	"density"	"2400"
+	"elasticity"	"0.2"
+	"friction"	"0.8"
+	"stepleft"	"Concrete.StepLeft"
+	"stepright"	"Concrete.StepRight"
+	"bulletimpact"	"Concrete.BulletImpact"
+	"gamematerial"	"C"
+}
+
+// Solid rock (small sounds)
+"rock"
+{
+	"base"		"concrete"
+}
+
+// Large solid rock (large sounds)
+"boulder"
+{
+	"base"		"rock"
+}
+
+"gravel"
+{
+	"base"		"rock"
+	"friction"	"0.4"
+	"stepleft"	"Gravel.StepLeft"
+	"stepright""Gravel.StepRight"
+}
+
+"brick"
+{
+	"base"		"concrete"
+}
+
+
+
+"chainlink"
+{
+	"thickness"	"0.5"
+	"density"	"1600"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	"stepleft"	"ChainLink.StepLeft"
+	"stepright"	"ChainLink.StepRight"
+	"impactsoft"	"ChainLink.Impact"
+	"impacthard"	"ChainLink.Impact"
+	"scrapesmooth"	"ChainLink.Scrape"
+	"scraperough"	"ChainLink.Scrape"
+	"bulletimpact"	"ChainLink.BulletImpact"
+	"gamematerial"	"G"
+}
+
+
+"flesh"
+{
+	"density"	"900"
+	"bulletimpact"	"Flesh.BulletImpact"
+	"impactsoft"	"Flesh.Impact"
+	"impacthard"	"Flesh.Impact"
+	"scrapesmooth"	"Flesh.Scrape"
+	"scraperough"	"Flesh.Scrape"
+	"gamematerial"	"F"
+}
+
+"bloodyflesh"
+{
+	"density"	"900"
+	"bulletimpact"	"Flesh.BulletImpact"
+	"impactsoft"	"Flesh.Impact"
+	"impacthard"	"Flesh.Impact"
+	"scrapesmooth"	"Flesh.Scrape"
+	"scraperough"	"Flesh.Scrape"
+
+	"gamematerial"	"B"
+}
+
+"alienflesh"
+{
+	"density"	"900"
+	"bulletimpact"	"Flesh.BulletImpact"
+	"impactsoft"	"Flesh.Impact"
+	"impacthard"	"Flesh.Impact"
+	"scrapesmooth"	"Flesh.Scrape"
+	"scraperough"	"Flesh.Scrape"
+	"gamematerial"	"H"
+}
+
+"watermelon"
+{
+	"density"	"900"
+	"bulletimpact"	"Watermelon.BulletImpact"
+	"impactsoft"	"Watermelon.Impact"
+	"impacthard"	"Watermelon.Impact"
+	"scrapesmooth"	"Watermelon.Scrape"
+	"scraperough"	"Watermelon.Scrape"
+	"gamematerial"	"F"
+}
+
+
+// Flesh for physics, metal for bullet fx
+"armorflesh"
+{
+	"base"		"flesh"
+	"bulletimpact"	"ArmorFlesh.BulletImpact"
+	"gamematerial"	"M"
+}
+
+"snow"
+{
+	"base"		"dirt"
+	"density"	"800"
+	"friction"	"0.35"
+}
+
+"ice"
+{
+	"density"	"917"
+	"friction"	"0.1"
+	"elasticity"	"0.1"
+}
+
+
+// UNDONE: Do proper values for these - I made them up so I would have good
+// initial values for all VMTs
+"carpet"
+{
+	"base"		"dirt"
+	"density"	"500"
+	"thickness"	"0.1"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+	"impactsoft"	"Carpet.Impact"
+	"impacthard"	"Carpet.Impact"
+	"bulletimpact"	"Carpet.BulletImpact"
+	"scrapesmooth"	"Carpet.Scrape"
+	"scraperough"	"Carpet.Scrape"
+}
+
+
+"plaster"
+{
+	"base"		"dirt"
+}
+
+
+"cardboard"
+{
+	"base"		"dirt"
+	"density"	"500"
+	"thickness"	"0.25"
+}
+
+
+"sand"
+{
+	"base"		"dirt"
+	"stepleft"	"Sand.StepLeft"
+	"stepright"	"Sand.StepRight"
+	"bulletimpact"	"Sand.BulletImpact"
+}
+
+
+"plastic"
+{
+	"base"		"dirt"
+}
+
+
+"rubber"
+{
+	"base"			"dirt"
+	"elasticity"	"0.2"
+	"friction"		"0.8"
+}
+
+"rubbertire"
+{
+	"base"			"dirt"
+	"elasticity"		"0.2"
+	"friction"		"1.3"
+}
+
+"slidingrubbertire"
+{
+	"base"			"dirt"
+	"elasticity"		"0.2"
+	"friction"		"0.2"
+}
+
+"brakingrubbertire"
+{
+	"base"			"dirt"
+	"elasticity"		"0.2"
+	"friction"		"0.6"
+}
+
+"slidingrubbertire_front"
+{
+	"base"			"dirt"
+	"elasticity"		"0.2"
+	"friction"		"0.2"
+}
+
+"slidingrubbertire_rear"
+{
+	"base"			"dirt"
+	"elasticity"		"0.2"
+	"friction"		"0.2"
+}
+
+// -----------------------------
+// objects
+// -----------------------------
+
+"metal_seafloorcar"
+{
+	"base"		"metal"
+	"bulletimpact"	"Metal_SeafloorCar.BulletImpact"
+}
+
+"glassbottle"
+{
+	"base"		"glass"
+	"friction"	"0.4"
+	"elasticity"	"0.3"
+	"impactsoft"	"GlassBottle.Impact"
+	"impacthard"	"GlassBottle.Impact"
+	"scrapesmooth"	"GlassBottle.Scrape"
+	"scraperough"	"GlassBottle.Scrape"
+	"bulletimpact"	"GlassBottle.BulletImpact"
+}
+
+"grenade"
+{
+	"base"		"metalpanel"
+	"friction"	"0.9"
+	"elasticity"	"0.01"
+	"impactsoft"	"Grenade.Impact"
+	"impacthard"	"Grenade.Impact"
+	"scrapesmooth"	"Grenade.Scrape"
+	"scraperough"	"Grenade.Scrape"
+}
+
+
+
+"canister"
+{
+	"base"		"metalpanel"
+	"impactsoft"	"Canister.Impact"
+	"impacthard"	"Canister.Impact"
+	"scrapesmooth"	"Canister.Scrape"
+	"scraperough"	"Canister.Scrape"
+}
+
+
+"metal_barrel"
+{
+	"base"		"metalpanel"
+	"impactsoft"	"Metal_Barrel.Impact"
+	"impacthard"	"Metal_Barrel.Impact"
+	"scrapesmooth"	"Metal_Barrel.Scrape"
+	"scraperough"	"Metal_Barrel.Scrape"
+	"bulletimpact"	"Metal_Barrel.BulletImpact"
+}
+
+
+
+
+// ROLLER NPC
+
+"roller"
+{
+	"base"		"metalpanel"
+	"friction"	"0.7"
+	"elasticity"	"0.3"
+	"impactsoft"	"Roller.Impact"
+	"impacthard"	"Roller.Impact"
+}
+
+
+"popcan"
+{
+	"base"		"metalpanel"
+	"friction"	"0.3"
+	"elasticity"	"0.99"
+	"impactsoft"	"Popcan.Impact"
+	"impacthard"	"Popcan.Impact"
+	"scrapesmooth"	"Popcan.Scrape"
+	"scraperough"	"Popcan.Scrape"
+	"bulletimpact"	"Popcan.BulletImpact"
+}
+
+
+"paper"
+{
+	"base"		"dirt"
+}
+
+
+"papercup"
+{
+	"base"		"paper"
+	"friction"	"0.8"
+	"elasticity"	"0.1"
+	"impactsoft"	"Papercup.Impact"
+	"impacthard"	"Papercup.Impact"
+	"scrapesmooth"	"Popcan.Scrape"
+	"scraperough"	"Popcan.Scrape"
+}
+
+
+"gunship"
+{
+	"base"		"metal"
+	"friction"	"0.3"
+	"impactsoft"	"Gunship.Impact"
+	"impacthard"	"Gunship.Impact"
+	"scrapesmooth"	"Gunship.Scrape"
+	"scraperough"	"Gunship.Scrape"
+}
+
+"strider"
+{
+	"base"		"metal"
+
+	"impactsoft"	"Strider.Impact"
+	"impacthard"	"Strider.Impact"
+	"scrapesmooth"	"Strider.Scrape"
+	"scraperough"	"Strider.Scrape"
+
+}
+
+// weapon models - need sounds for when weapons drop
+// Maybe we'll want specific materials for each weapon?
+"weapon"
+{
+	"base"		"metal"
+}
+
+// for invisible collision materials (like sky)
+"default_silent"
+{
+	"gamematerial"	"X"
+}
+
+// special materials for player controller
+"player"
+{
+	"density"	"1000"
+	"friction"	"0.5"
+	"elasticity"	"0.001"
+}
+
+"player_control_clip"
+{
+	"gamematerial"	"I"
+}
+
+"no_decal"
+{
+	"gamematerial" "-"
+}
+
+"foliage"
+{
+	"density"	"700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+	"stepleft"	"Wood.StepLeft"
+	"stepright"	"Wood.StepRight"
+	"bulletimpact"	"Wood.BulletImpact"
+	"impactsoft"	"Wood.Impact"
+	"impacthard"	"Wood.Impact"
+	"scrapesmooth"	"Wood.Scrape"
+	"scraperough"	"Wood.Scrape"
+	"gamematerial"	"O"
+}
+
+"Wood_Box"
+{
+	"base"	"Wood"
+
+	"stepleft"		"Wood_Box.StepLeft"
+	"stepright"		"Wood_Box.StepRight"
+	"bulletimpact"	"Wood_Box.BulletImpact"
+	"scraperough"	"Wood_Box.ScrapeRough"
+	"scrapesmooth"	"Wood_Box.ScrapeSmooth"
+	"impacthard"	"Wood_Box.ImpactHard"
+	"impactsoft"	"Wood_Box.ImpactSoft"
+
+//	"strain"		"Wood_Box.Strain"
+	"break"			"Wood_Box.Break"
+
+}
+
+"Wood_Crate"
+{
+	"base"	"Wood"
+
+	"stepleft"		"Wood_Crate.StepLeft"
+	"stepright"		"Wood_Crate.StepRight"
+	"scraperough"	"Wood_Crate.ScrapeRough"
+	"scrapesmooth"	"Wood_Crate.ScrapeSmooth"
+	"impacthard"	"Wood_Crate.ImpactHard"
+	"impactsoft"	"Wood_Crate.ImpactSoft"
+
+//	"strain"		"Wood_Crate.Strain"
+	"break"			"Wood_Crate.Break"
+
+}
+
+"Wood_Plank"
+{
+	"base"	"Wood_Box"
+
+	"bulletimpact"	"Wood_Plank.BulletImpact"
+	"scraperough"	"Wood_Plank.ScrapeRough"
+	"scrapesmooth"	"Wood_Plank.ScrapeSmooth"
+	"impacthard"	"Wood_Plank.ImpactHard"
+	"impactsoft"	"Wood_Plank.ImpactSoft"
+
+//	"strain"		"Wood_Plank.Strain"
+	"break"			"Wood_Plank.Break"
+
+}
+
+// solid 6x6 or greater block, post or tree
+
+"Wood_Solid"
+{
+	"base"	"Wood"
+
+	"bulletimpact"	"Wood_Solid.BulletImpact"
+	"scraperough"	"Wood_Solid.ScrapeRough"
+	"scrapesmooth"	"Wood_Solid.ScrapeSmooth"
+	"impacthard"	"Wood_Solid.ImpactHard"
+	"impactsoft"	"Wood_Solid.ImpactSoft"
+
+//	"strain"		"Wood_Solid.Strain"
+	"break"			"Wood_Solid.Break"
+
+}

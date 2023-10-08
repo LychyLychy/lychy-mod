@@ -3437,6 +3437,25 @@ void C_BaseAnimating::DoAnimationEvents( CStudioHdr *pStudioHdr )
 		
 		ProcessMuzzleFlashEvent();
 	}
+	// add in muzzleflash effect
+	if (IsEffectActive(EF_MUZZLEFLASH) && m_Attachments.Count() > 0)
+	{
+		Vector vAttachment;
+		QAngle dummyAngles;
+		GetAttachment(1, vAttachment, dummyAngles);
+
+		dlight_t* el = effects->CL_AllocDlight(LIGHT_INDEX_MUZZLEFLASH + index);
+		el->origin = vAttachment;
+		el->radius = 100;
+		el->decay = el->radius / 0.05f;
+		el->die = gpGlobals->curtime + 0.05f;
+		el->color.r = 255;
+		el->color.g = 192;
+		el->color.b = 64;
+		el->color.exponent = 5;
+
+		ActivateEffect(EF_MUZZLEFLASH, false);
+	}
 
 	// If we're invisible, don't process animation events.
 	if ( bIsInvisible )
@@ -4182,6 +4201,8 @@ void C_BaseAnimating::FireObsoleteEvent( const Vector& origin, const QAngle& ang
 			{
 				GetAttachment( iAttachment+1, attachOrigin, attachAngles );
 				int entId = render->GetViewEntity();
+				if (entId == 1)
+					entId = entindex();
 				ClientEntityHandle_t hEntity = ClientEntityList().EntIndexToHandle( entId );
 				tempents->MuzzleFlash( attachOrigin, attachAngles, atoi( options ), hEntity, bFirstPerson );
 			}

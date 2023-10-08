@@ -905,7 +905,7 @@ public:
 	NPC_STATE			m_NPCState;				// npc's current state
 	float				m_flLastStateChangeTime;
 
-private:
+public:
 	NPC_STATE			m_IdealNPCState;		// npc should change to this state
 	AI_Efficiency_t		m_Efficiency;
 	AI_MoveEfficiency_t m_MoveEfficiency;

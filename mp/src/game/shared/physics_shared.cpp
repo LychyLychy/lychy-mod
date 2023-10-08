@@ -534,6 +534,16 @@ void AddSurfacepropFile( const char *pFileName, IPhysicsSurfaceProps *pProps, IF
 	}
 }
 
+
+void PhysParseSurfaceData(IPhysicsSurfaceProps* pProps, IFileSystem* pFileSystem);
+
+void lychy_surfaceprops_old_cc(IConVar* var, const char* pOldValue, float flOldValue)
+{
+	PhysParseSurfaceData(physprops, filesystem);
+}
+ConVar lychy_surfaceprops_old("lychy_surfaceprops_old", "0", NULL, "", lychy_surfaceprops_old_cc);
+ConVar lychy_surfaceprops_oldsounds("lychy_surfaceprops_oldsounds", "0", NULL, "", lychy_surfaceprops_old_cc);
+
 void PhysParseSurfaceData( IPhysicsSurfaceProps *pProps, IFileSystem *pFileSystem )
 {
 	KeyValues *manifest = new KeyValues( SURFACEPROP_MANIFEST_FILE );
@@ -541,7 +551,12 @@ void PhysParseSurfaceData( IPhysicsSurfaceProps *pProps, IFileSystem *pFileSyste
 	{
 		for ( KeyValues *sub = manifest->GetFirstSubKey(); sub != NULL; sub = sub->GetNextKey() )
 		{
-			if ( !Q_stricmp( sub->GetName(), "file" ) )
+
+			if  ( 
+				!Q_stricmp( sub->GetName(), "file" ) ||
+				(lychy_surfaceprops_oldsounds.GetBool() && !Q_stricmp(sub->GetName(), "file_betasounds")) ||
+				(lychy_surfaceprops_old.GetBool() && !Q_stricmp(sub->GetName(), "file_beta"))
+				)
 			{
 				// Add
 				AddSurfacepropFile( sub->GetString(), pProps, pFileSystem );

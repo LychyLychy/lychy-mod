@@ -525,3 +525,195 @@
 		"wave"	"npc/metroPolice/alert6.wav"
 	}
 }
+
+// weapon_ar2.txt
+"Weapon_AR2Beta.Empty"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/ar2/ar2_empty.wav"
+}
+
+"Weapon_AR2Beta.Reload"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/ar2/ar2_reload.wav"
+}
+
+"Weapon_AR2Beta.Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"95,105"
+
+	"rndwave"
+	{
+		"wave"			"weapons/ar1_1.wav"
+		"wave"			"weapons/ar1_2.wav"
+		"wave"			"weapons/ar1_3.wav"
+	}
+}
+
+"Weapon_AR2Beta.Special1"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"				"weapons/sniper/sniper_zoomin.wav"
+}
+
+"Weapon_AR2Beta.Special2"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/sniper/sniper_zoomout.wav"
+}
+
+"Weapon_AR2Beta.Double"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"			"weapons/ar2/ar2_altfire.wav"
+}
+
+"Weapon_AR2Beta.NPC_Reload"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/ar2/npc_ar2_reload.wav"
+}
+
+"Weapon_AR2Beta.NPC_Double"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"			"weapons/ar2/npc_ar2_altfire.wav"
+}
+
+"Weapon_AR2Beta.NPC_Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"95,105"
+
+	"wave"			"^weapons/ar2/npc_ar2_fire1.wav"
+}
+
+"NPC_CombineS.Die"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/combine_soldier/die1.wav"
+		"wave"	"npc/combine_soldier/die2.wav"
+		"wave"	"npc/combine_soldier/die3.wav"
+	}
+}
+
+
+// Weapon_SMG1Beta.txt
+"Weapon_SMG1Beta.Reload"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"		"weapons/smg1/smg1_reload.wav"
+}
+
+"Weapon_SMG1Beta.NPC_Reload"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"		"weapons/smg1/smg1_reload.wav"
+}
+
+"Weapon_SMG1Beta.Empty"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"		"weapons/pistol/pistol_empty.wav"
+}
+
+"Weapon_SMG1Beta.Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"95,105"
+
+	"wave"		"weapons/smg1/smg1_fire1.wav"
+}
+
+"Weapon_SMG1Beta.Double"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+
+	"wave"		"weapons/ar2/ar2_altfire.wav"
+}
+
+
+"Weapon_SMG1Beta.NPC_Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"90,150"
+
+	"wave"			"^test/npc_smg1_fire1.wav"
+}
+
+"Weapon_SMG1Beta.Special1"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"		"weapons/smg1/switch_single.wav"
+}
+
+"Weapon_SMG1Beta.Special2"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/smg1/switch_burst.wav"
+}
+
+"Weapon_SMG1Beta.Burst"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"98,105"
+
+	"wave"			"^test/npc_smg1_fire1.wav"
+}

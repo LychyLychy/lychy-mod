@@ -75,6 +75,17 @@ ConVar ai_use_visibility_cache( "ai_use_visibility_cache", "1" );
 #define ShouldUseVisibilityCache() true
 #endif
 
+// Weapon proficiency table. Keep this in sync with WeaponProficiency_t enum in the header!!
+proficiencyinfo_t g_WeaponProficiencyTable[] =
+{
+	{ 1.50, "VERY LOW"	},
+	{ 1.40, "LOW"		},
+	{ 1.30, "AVERAGE"	},
+	{ 1.20, "HIGH"		},
+	{ 1.10, "VERY HIGH" },
+	{ 1.00, "PERFECT"	},
+};
+
 BEGIN_DATADESC( CBaseCombatCharacter )
 
 #ifdef INVASION_DLL

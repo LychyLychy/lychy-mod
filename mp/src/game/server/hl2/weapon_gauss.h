@@ -5,6 +5,7 @@
 //=============================================================================//
 
 #include "basehlcombatweapon.h"
+#include "te_particlesystem.h"
 
 #ifndef WEAPON_GAUSS_H
 #define WEAPON_GAUSS_H

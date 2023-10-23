@@ -77,5 +77,5 @@ config.cfg
 mp/game/mod_hl2/beta/
 mp/game/bin/
 mp/game/mod_hl2/src/
-mp/src/utils/vbsp/Release/
-mp/src/utils/vrad/Release/
+**/Debug/
+**/Release/
